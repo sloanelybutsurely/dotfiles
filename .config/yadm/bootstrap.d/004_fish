@@ -1,0 +1,16 @@
+#!/bin/bash
+
+FISH=$(which fish)
+
+if grep --quiet $FISH /etc/shells; then
+  echo "fish already in shells list"
+else
+  echo "adding fish to shells list"
+  echo $FISH | sudo tee -a /etc/shells
+fi
+
+if [ $FISH == $SHELL ]; then
+  echo "fish already default shell"
+else
+  chsh -s $FISH
+fi

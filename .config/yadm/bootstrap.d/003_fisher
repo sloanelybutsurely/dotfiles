@@ -6,5 +6,3 @@ else
   echo "installing fisher"
   curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 end
-
-fisher update
