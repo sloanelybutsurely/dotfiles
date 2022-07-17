@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+
+if type -q fisher
+  echo "fisher already installed"
+else
+  echo "installing fisher"
+  curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+end
