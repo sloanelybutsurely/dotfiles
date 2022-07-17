@@ -55,9 +55,7 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
-if !exists('g:vscode')
-  colorscheme dracula
-endif
+colorscheme dracula
 
 set number
 set relativenumber
@@ -82,13 +80,8 @@ nnoremap q; q:
 vnoremap ; :
 vnoremap q; q:
 
-if exists('g:vscode')
-  nnoremap <Leader>w :Write<CR>
-  nnoremap <Leader>wq :Write<CR>:q<CR>
-else
-  nnoremap <Leader>w :w<CR>
-  nnoremap <Leader>wq :wq<CR>
-endif
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>wq :wq<CR>
 
 nnoremap <Leader>q :q<CR>
 
@@ -120,19 +113,9 @@ nnoremap <Leader>gf :Git fetch<CR>
 nnoremap <Leader>gr :Git rebase origin/main<CR>
 nnoremap <Leader>gb :Git checkout -b 
 
-if !exists('g:vscode')
-  luafile ~/.config/nvim/lua/lsp-setup.lua
-endif
+luafile ~/.config/nvim/lua/lsp-setup.lua
 
 " lua require('gitsigns').setup()
-
-lua << EOF
-  require("trouble").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
-EOF
 
 nnoremap <Leader>o :only<CR>
 
