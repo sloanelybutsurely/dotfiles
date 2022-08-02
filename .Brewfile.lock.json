@@ -394,6 +394,12 @@
         "options": {
           "full_name": "krisp"
         }
+      },
+      "tweetbot": {
+        "version": "3.5.8,35800",
+        "options": {
+          "full_name": "tweetbot"
+        }
       }
     }
   },
