@@ -495,6 +495,12 @@
         "options": {
           "full_name": "1password-cli"
         }
+      },
+      "rectangle": {
+        "version": "0.57,63",
+        "options": {
+          "full_name": "rectangle"
+        }
       }
     }
   },
@@ -511,7 +517,7 @@
       "ventura": {
         "HOMEBREW_VERSION": "3.5.7",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "96ff7d07948a8fa9df38c5ac1f1f00ff60da10f4",
+        "Homebrew/homebrew-core": "dc3439dba267910b7ee5832aa6f752394d758dae",
         "CLT": "14.0.0.0.1.1658620134",
         "Xcode": "14.0",
         "macOS": "13.0"
