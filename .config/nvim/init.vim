@@ -44,7 +44,10 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'tversteeg/registers.nvim'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'ibhagwan/fzf-lua'
+  " https://github.com/mrjones2014/dash.nvim/issues/137
+  Plug 'ibhagwan/fzf-lua', {'commit': '341f0641ea4b0bd1cb798d7138f1a84c90848b02'}
+
+  Plug 'mrjones2014/dash.nvim', { 'do': 'make install' }
 
   Plug 'elixir-editors/vim-elixir'
 
@@ -118,6 +121,10 @@ luafile ~/.config/nvim/lua/lsp-setup.lua
 " lua require('gitsigns').setup()
 
 nnoremap <Leader>o :only<CR>
+
+lua require('dash').setup({})
+
+nnoremap <Leader>d <cmd>lua require('dash').search()<CR>
 
 " Terminal mode
 tnoremap <Esc> <C-\><C-n>
