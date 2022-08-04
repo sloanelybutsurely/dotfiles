@@ -463,7 +463,7 @@
       "font-victor-mono-nerd-font": {
         "version": "2.1.0",
         "options": {
-          "full_name": "homebrew/cask-fonts/font-victor-mono-nerd-font"
+          "full_name": "font-victor-mono-nerd-font"
         }
       },
       "obsidian": {
@@ -501,6 +501,23 @@
         "options": {
           "full_name": "rectangle"
         }
+      },
+      "the-unarchiver": {
+        "version": "4.3.5,139,1652457131",
+        "options": {
+          "full_name": "the-unarchiver"
+        }
+      },
+      "font-victor-mono": {
+        "version": "1.5.4",
+        "options": {
+          "full_name": "font-victor-mono"
+        }
+      }
+    },
+    "tap": {
+      "homebrew/cask-fonts": {
+        "revision": "911fa54223d49ab0190d19b851122af93814dde2"
       }
     }
   },
@@ -517,7 +534,7 @@
       "ventura": {
         "HOMEBREW_VERSION": "3.5.7",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "dc3439dba267910b7ee5832aa6f752394d758dae",
+        "Homebrew/homebrew-core": "b80ccf81ce9f899c2555fa341a4326ea9c3a2584",
         "CLT": "14.0.0.0.1.1658620134",
         "Xcode": "14.0",
         "macOS": "13.0"
