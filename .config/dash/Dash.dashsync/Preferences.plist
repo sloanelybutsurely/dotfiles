@@ -132,6 +132,20 @@
 					<string>ecto_sql</string>
 				</dict>
 			</dict>
+			<key>faker</key>
+			<dict>
+				<key>date</key>
+				<date>2022-08-04T14:46:28Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>faker</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>faker</string>
+				</dict>
+			</dict>
 			<key>floki</key>
 			<dict>
 				<key>date</key>
@@ -172,6 +186,20 @@
 					<string>hex</string>
 					<key>uniqueIdentifier</key>
 					<string>jason</string>
+				</dict>
+			</dict>
+			<key>let_me</key>
+			<dict>
+				<key>date</key>
+				<date>2022-08-04T18:39:03Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>let_me</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>let_me</string>
 				</dict>
 			</dict>
 			<key>phoenix</key>
@@ -300,6 +328,20 @@
 					<string>typed_struct</string>
 				</dict>
 			</dict>
+			<key>ueberauth</key>
+			<dict>
+				<key>date</key>
+				<date>2022-08-04T14:49:54Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>ueberauth</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>ueberauth</string>
+				</dict>
+			</dict>
 			<key>vex</key>
 			<dict>
 				<key>date</key>
@@ -387,6 +429,8 @@
 	</dict>
 	<key>actuallyDarkWebView</key>
 	<true/>
+	<key>annotationsAreShown</key>
+	<false/>
 	<key>docsets</key>
 	<dict>
 		<key>keywords</key>
@@ -407,11 +451,15 @@
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/ectosql/ecto_sql.docset</key>
 			<string>ex:</string>
+			<key>~/Library/Application Support/Dash/Hex DocSets/faker/faker.docset</key>
+			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/floki/floki.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/gettext/gettext.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/jason/jason.docset</key>
+			<string>ex:</string>
+			<key>~/Library/Application Support/Dash/Hex DocSets/letme/let_me.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/phoenix/phoenix.docset</key>
 			<string>ex:</string>
@@ -430,6 +478,8 @@
 			<key>~/Library/Application Support/Dash/Hex DocSets/postgrex/postgrex.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/typedstruct/typed_struct.docset</key>
+			<string>ex:</string>
+			<key>~/Library/Application Support/Dash/Hex DocSets/ueberauth/ueberauth.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/vex/vex.docset</key>
 			<string>ex:</string>
@@ -499,6 +549,12 @@
 			<string>Search Snippets</string>
 			<key>searchSnippets</key>
 			<true/>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Elixir &amp; Hex</string>
+			<key>searchSnippets</key>
+			<false/>
 		</dict>
 	</array>
 	<key>shouldRestoreTabs</key>
