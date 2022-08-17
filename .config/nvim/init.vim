@@ -38,6 +38,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
 
   Plug 'duane9/nvim-rg'
 
@@ -50,6 +51,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'mrjones2014/dash.nvim', { 'do': 'make install' }
 
   Plug 'elixir-editors/vim-elixir'
+  Plug 'khaveesh/vim-fish-syntax'
 
   Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
@@ -122,7 +124,7 @@ luafile ~/.config/nvim/lua/lsp-setup.lua
 
 nnoremap <Leader>o :only<CR>
 
-lua require('dash').setup({})
+lua require('dash').setup({ file_type_keywords = { elixir = { 'ex' } } })
 
 nnoremap <Leader>d <cmd>lua require('dash').search()<CR>
 

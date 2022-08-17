@@ -160,6 +160,20 @@
 					<string>floki</string>
 				</dict>
 			</dict>
+			<key>gen_stage</key>
+			<dict>
+				<key>date</key>
+				<date>2022-08-08T21:05:06Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>gen_stage</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>gen_stage</string>
+				</dict>
+			</dict>
 			<key>gettext</key>
 			<dict>
 				<key>date</key>
@@ -314,6 +328,20 @@
 					<string>postgrex</string>
 				</dict>
 			</dict>
+			<key>tesla</key>
+			<dict>
+				<key>date</key>
+				<date>2022-08-08T15:40:13Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>tesla</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>tesla</string>
+				</dict>
+			</dict>
 			<key>typed_struct</key>
 			<dict>
 				<key>date</key>
@@ -354,6 +382,20 @@
 					<string>hex</string>
 					<key>uniqueIdentifier</key>
 					<string>vex</string>
+				</dict>
+			</dict>
+			<key>websockex</key>
+			<dict>
+				<key>date</key>
+				<date>2022-08-08T20:31:57Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>websockex</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>websockex</string>
 				</dict>
 			</dict>
 		</dict>
@@ -455,6 +497,8 @@
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/floki/floki.docset</key>
 			<string>ex:</string>
+			<key>~/Library/Application Support/Dash/Hex DocSets/genstage/gen_stage.docset</key>
+			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/gettext/gettext.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/jason/jason.docset</key>
@@ -477,12 +521,16 @@
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/postgrex/postgrex.docset</key>
 			<string>ex:</string>
+			<key>~/Library/Application Support/Dash/Hex DocSets/tesla/tesla.docset</key>
+			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/typedstruct/typed_struct.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/ueberauth/ueberauth.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/vex/vex.docset</key>
 			<string>ex:</string>
+			<key>~/Library/Application Support/Dash/Hex DocSets/websockex/websockex.docset</key>
+			<string>ex</string>
 			<key>~/Library/Application Support/Dash/Versioned DocSets/Elixir - DHDocsetDownloader/1-13-4/Elixir.docset</key>
 			<string>ex:</string>
 		</dict>

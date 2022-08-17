@@ -4,6 +4,7 @@ SETUVAR --export BAT_THEME:Dracula
 SETUVAR --export EDITOR:nvim
 SETUVAR --export ERL_AFLAGS:\x2dkernel\x20shell_history\x20enabled
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_c:clear
 SETUVAR _fish_abbr_cat:bat
 SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_ga:git\x20add
@@ -17,16 +18,17 @@ SETUVAR _fish_abbr_gf:git\x20fetch
 SETUVAR _fish_abbr_gp:git\x20push\x20\x2d\x2dforce\x2dwith\x2dlease
 SETUVAR _fish_abbr_gpl:git\x20pull
 SETUVAR _fish_abbr_gr:git\x20rebase
-SETUVAR _fish_abbr_grep:batgrep
 SETUVAR _fish_abbr_gst:git\x20status
-SETUVAR _fish_abbr_less:batpipe
-SETUVAR _fish_abbr_man:batman
 SETUVAR _fish_abbr_phxs:iex\x20\x2dS\x20mix\x20phx\x2eserver
 SETUVAR _fisher_dracula_2F_fish_files:\x7e/\x2econfig/fish/conf\x2ed/dracula\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_hydro_files:\x7e/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_prompt\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/hydro\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1edracula/fish\x1ejorgebucaran/hydro
 SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR _hydro_git_13242:\x1d
+SETUVAR _hydro_git_16119:feat/policy\u2022\x20
+SETUVAR _hydro_git_32941:feat/policy\u2022\x20
+SETUVAR _hydro_git_77530:feat/policy\u2022\x20
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
