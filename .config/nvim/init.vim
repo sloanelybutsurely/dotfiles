@@ -52,6 +52,8 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'elixir-editors/vim-elixir'
   Plug 'khaveesh/vim-fish-syntax'
+  Plug 'godlygeek/tabular'
+  Plug 'preservim/vim-markdown'
 
   Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
@@ -134,3 +136,7 @@ tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
+
+
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
