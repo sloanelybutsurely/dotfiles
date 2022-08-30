@@ -17,6 +17,9 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rhubarb'
 
+  Plug 'tpope/vim-sexp-mappings-for-regular-people'
+  Plug 'guns/vim-sexp'
+
   Plug 'christoomey/vim-sort-motion'
 
   Plug 'kana/vim-textobj-user'
@@ -52,8 +55,10 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'elixir-editors/vim-elixir'
   Plug 'khaveesh/vim-fish-syntax'
-  Plug 'godlygeek/tabular'
-  Plug 'preservim/vim-markdown'
+  Plug 'neovimhaskell/haskell-vim'
+  Plug 'alx741/vim-hindent'
+  Plug 'gleam-lang/gleam.vim'
+  Plug 'benknoble/vim-racket'
 
   Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
