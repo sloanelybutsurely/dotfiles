@@ -59,6 +59,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'alx741/vim-hindent'
   Plug 'gleam-lang/gleam.vim'
   Plug 'benknoble/vim-racket'
+  Plug 'vim-scripts/scribble.vim'
 
   Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
