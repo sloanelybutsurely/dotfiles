@@ -63,10 +63,24 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>cachex</key>
+			<dict>
+				<key>date</key>
+				<date>2022-08-30T19:01:14Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>cachex</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>cachex</string>
+				</dict>
+			</dict>
 			<key>commanded</key>
 			<dict>
 				<key>date</key>
-				<date>2022-08-02T17:23:49Z</date>
+				<date>2022-09-11T12:31:04Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -80,7 +94,7 @@
 			<key>commanded_ecto_projections</key>
 			<dict>
 				<key>date</key>
-				<date>2022-08-02T17:23:50Z</date>
+				<date>2022-09-06T16:39:15Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -94,7 +108,7 @@
 			<key>commanded_eventstore_adapter</key>
 			<dict>
 				<key>date</key>
-				<date>2022-08-02T17:23:52Z</date>
+				<date>2022-09-07T22:18:41Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -108,7 +122,7 @@
 			<key>credo</key>
 			<dict>
 				<key>date</key>
-				<date>2022-08-02T17:24:03Z</date>
+				<date>2022-09-06T16:39:17Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -231,10 +245,24 @@
 					<string>let_me</string>
 				</dict>
 			</dict>
+			<key>oban</key>
+			<dict>
+				<key>date</key>
+				<date>2022-09-07T22:18:42Z</date>
+				<key>entry</key>
+				<dict>
+					<key>name</key>
+					<string>oban</string>
+					<key>platform</key>
+					<string>hex</string>
+					<key>uniqueIdentifier</key>
+					<string>oban</string>
+				</dict>
+			</dict>
 			<key>phoenix</key>
 			<dict>
 				<key>date</key>
-				<date>2022-08-02T17:23:14Z</date>
+				<date>2022-09-07T22:43:53Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -496,6 +524,8 @@
 			<string>js:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Man_Pages/Man Pages.docset</key>
 			<string>man:</string>
+			<key>~/Library/Application Support/Dash/Hex DocSets/cachex/cachex.docset</key>
+			<string>ex</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/commanded/commanded.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/commandedectoprojections/commanded_ecto_projections.docset</key>
@@ -519,6 +549,8 @@
 			<key>~/Library/Application Support/Dash/Hex DocSets/jason/jason.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/letme/let_me.docset</key>
+			<string>ex:</string>
+			<key>~/Library/Application Support/Dash/Hex DocSets/oban/oban.docset</key>
 			<string>ex:</string>
 			<key>~/Library/Application Support/Dash/Hex DocSets/phoenix/phoenix.docset</key>
 			<string>ex:</string>
