@@ -1,6 +1,13 @@
 local wk = require('which-key')
 local map = vim.keymap.set
 
+vim.cmd([[
+  augroup keys_user_config
+    autocmd!
+    autocmd BufWritePost keys.lua source <afile>
+  augroup end
+]])
+
 wk.setup({
   key_labels = {
     ['<space>'] = 'SPC',
@@ -13,8 +20,20 @@ vim.opt.timeoutlen = 500
 
 vim.g.mapleader = ' '
 
+-- Handy to remap semi-colon to colon
 map({ 'n', 'v' }, ';', ':')
 map({ 'n', 'v' }, 'q;', 'q:')
+
+-- System clipboard via <leader> -> y | p
+map({ 'n', 'v' }, '<leader>y', '"+y')
+map(  'n',        'Y',         '"+Y')
+map({ 'n', 'v' }, '<leader>p', '"+p')
+map({ 'n', 'v' }, '<leader>P', '"+P')
+
+-- Common short-hands
+map('n', '<leader>w', '<cmd>w<cr>')
+map('n', '<leader>q', '<cmd>q<cr>')
+map('n', '<leader>o', '<cmd>only<cr>')
 
 wk.register({
   ['<space>'] = { '<cmd>Telescope find_files<cr>', 'File file in project' },
@@ -31,12 +50,6 @@ wk.register({
     r = { '<cmd>Telescope oldfiles<cr>', 'Recent files' },
   },
 
-  q = {
-    name = 'quit/session',
-    b = { '<cmd>q<cr>', 'Buffer' },
-    q = { '<cmd>qa<cr>', 'Neovim' },
-  },
-
   e = {
     name = 'editor',
     p = {
@@ -45,5 +58,18 @@ wk.register({
       c = { '<cmd>PackerCompile<cr>', 'Packer Compile' },
       l = { '<cmd>PackerClean<cr>',   'Packer Clean' },
     }
-  }
+  },
+
+  g = {
+    name = 'git',
+    s = { '<cmd>Git<cr>', 'Status' },
+    f = { '<cmd>Git fetch<cr>', 'Fetch' },
+    p = { '<cmd>Git push --force-with-lease -u origin head<cr>', 'Push' },
+    r = { 
+      name = 'rebase',
+      m = { '<cmd>Git rebase origin/main<cr>', 'origin/main' },
+      M = { '<cmd>Git rebase --interactive origin/main<cr>', 'Interactive origin/main' }
+    }
+  },
+
 }, { prefix = '<leader>' })
