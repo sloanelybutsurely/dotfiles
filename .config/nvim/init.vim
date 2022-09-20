@@ -12,5 +12,3 @@ set expandtab
 set mouse=a
 
 colorscheme dracula
-
-lua require('keys')
