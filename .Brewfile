@@ -37,4 +37,7 @@ cask "ngrok"
 brew "httpie"
 brew "fd"
 cask "tailscale"
+<<<<<<< Updated upstream
 cask "discord"
+=======
+>>>>>>> Stashed changes

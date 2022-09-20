@@ -705,26 +705,33 @@
         "options": {
           "full_name": "tailscale"
         }
+<<<<<<< Updated upstream
       },
       "discord": {
         "version": "0.0.268",
         "options": {
           "full_name": "discord"
         }
+=======
+>>>>>>> Stashed changes
       }
     },
     "tap": {
       "homebrew/cask-fonts": {
+<<<<<<< Updated upstream
         "revision": "dd754afae30462d97f5fb7729153eb460b7a6878"
+=======
+        "revision": "a8e6cf6d9226d1f0c9d2d0562419d48759e84318"
+>>>>>>> Stashed changes
       }
     }
   },
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "3.5.9",
+        "HOMEBREW_VERSION": "3.5.10",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "9341434f53b7dfcb58a9c64b9ad0f804bad40cde",
+        "Homebrew/homebrew-core": "a6ca0deb4375420a7826a540ba804fbb0161f2f1",
         "CLT": "13.4.0.0.1.1651278267",
         "Xcode": "13.4",
         "macOS": "12.5"
