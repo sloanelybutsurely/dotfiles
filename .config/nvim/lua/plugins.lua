@@ -58,12 +58,6 @@ return require('packer').startup(function(use)
 
   use 'preservim/nerdtree'
 
-  -- language specific plugins
-  use {
-    'jxnblk/vim-mdx-js',
-    'elixir-editors/vim-elixir',
-  }
-
   use { 'dracula/vim', as = 'dracula' }
 
   -- Automatically set up your configuration after cloning packer.nvim
