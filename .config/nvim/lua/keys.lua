@@ -32,8 +32,9 @@ map({ 'n', 'v' }, '<leader>P', '"+P')
 
 -- Common short-hands
 map('n', '<leader>w', '<cmd>w<cr>')
-map('n', '<leader>q', '<cmd>wq<cr>')
+map('n', '<leader>q', '<cmd>q<cr>')
 map('n', '<leader>o', '<cmd>only<cr>')
+map('n', '<esc>', '<cmd>nohlsearch<cr>')
 
 wk.register({
   ['<space>'] = { '<cmd>Telescope find_files<cr>', 'File file in project' },
