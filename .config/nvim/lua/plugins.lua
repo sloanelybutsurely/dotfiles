@@ -68,6 +68,11 @@ return require('packer').startup(function(use)
   }
 
 
+  -- language specific plugins
+  use {
+    'jxnblk/vim-mdx-js',
+  }
+
   use { 'dracula/vim', as = 'dracula' }
 
   -- Automatically set up your configuration after cloning packer.nvim
