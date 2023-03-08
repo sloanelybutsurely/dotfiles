@@ -1,8 +1,8 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = {
       { 'nvim-lua/plenary.nvim' },
-      { 'nvim-telescope/telescope-fzf-native.nvim', run='make' }
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     },
     config = function()
       require('telescope').setup()
@@ -58,19 +58,10 @@ return require('packer').startup(function(use)
 
   use 'preservim/nerdtree'
 
-  use {
-    { 'williamboman/mason.nvim', config = function() require('mason').setup() end },
-    'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig',
-    'mfussenegger/nvim-dap',
-    'jose-elias-alvarez/null-ls.nvim',
-    'mhartington/formatter.nvim',
-  }
-
-
   -- language specific plugins
   use {
     'jxnblk/vim-mdx-js',
+    'elixir-editors/vim-elixir',
   }
 
   use { 'dracula/vim', as = 'dracula' }

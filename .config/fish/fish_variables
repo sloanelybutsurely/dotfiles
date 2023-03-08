@@ -3,7 +3,11 @@
 SETUVAR --export BAT_THEME:Dracula
 SETUVAR --export EDITOR:nvim
 SETUVAR --export ERL_AFLAGS:\x2dkernel\x20shell_history\x20enabled
+SETUVAR --export JAVA11_HOME:/Users/sloane/Library/Java/JavaVirtualMachines/temurin\x2d11\x2e0\x2e18/Contents/Home/
+SETUVAR --export JAVA17_HOME:/Users/sloane/Library/Java/JavaVirtualMachines/temurin\x2d17\x2e0\x2e6/Contents/Home
+SETUVAR --export JAVA_HOME:/Users/sloane/Library/Java/JavaVirtualMachines/temurin\x2d17\x2e0\x2e6/Contents/Home
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_be:script/bundle\x20exec
 SETUVAR _fish_abbr_c:clear
 SETUVAR _fish_abbr_cat:bat
 SETUVAR _fish_abbr_g:git
@@ -20,19 +24,43 @@ SETUVAR _fish_abbr_gpl:git\x20pull
 SETUVAR _fish_abbr_gr:git\x20rebase
 SETUVAR _fish_abbr_gst:git\x20status
 SETUVAR _fish_abbr_phxs:iex\x20\x2dS\x20mix\x20phx\x2eserver
+SETUVAR _fish_abbr_railsc:script/togo/development\x20exec\x20bin/rails\x20c
+SETUVAR _fish_abbr_rspec_2D_engines:script/togo/test\x20exec\x20bin/rspec\x20engines/spec/app/controllers/engines/engines_controller_spec\x2erb\x20engines/spec/app/controllers/engines/search_controller_spec\x2erb\x20engines/spec/app/models/search_engine_spec\x2erb
 SETUVAR _fisher_dracula_2F_fish_files:\x7e/\x2econfig/fish/conf\x2ed/dracula\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_hydro_files:\x7e/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_prompt\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/hydro\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1edracula/fish\x1ejorgebucaran/hydro
 SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR _hydro_git_12859:sloanelybutsurely/engines\x2dalias\x2dmgmt\u2022\x20
+SETUVAR _hydro_git_1546:ent\x2d3671\x2dengines\x2dadd\x2dindices\x2dflyout\x20
 SETUVAR _hydro_git_16272:sloanelybutsurely/DRP\x2d961\x2dmaintain\x2dheaders\x2dwhen\x2dselecting\x2dbirthday\x2drow\x20
+SETUVAR _hydro_git_1683:4033\x2dsearch\x2dpreview\x2dsorting\x20
 SETUVAR _hydro_git_20464:sloanelybutsurely/DRP\x2d961\x2dmaintain\x2dheaders\x2dwhen\x2dselecting\x2dbirthday\x2drow\x20
+SETUVAR _hydro_git_26529:\x1d
+SETUVAR _hydro_git_3342:4103\x2dsearch\x2dpreview\x2dschema\x2dbugs\x20
 SETUVAR _hydro_git_35292:\x1d
+SETUVAR _hydro_git_35653:ent\x2dsearch\x2d3510\x2dcrawler\x2dview\x2din\x2ddiscover\x20
 SETUVAR _hydro_git_4001:main\u2022\x20
+SETUVAR _hydro_git_40763:main\x20
 SETUVAR _hydro_git_41063:main\x20
+SETUVAR _hydro_git_41098:search\x2dpreview\x20
+SETUVAR _hydro_git_44034:ent\x2dsearch\x2d3510\x2dcrawler\x2dview\x2din\x2ddiscover\x20
+SETUVAR _hydro_git_44323:ent\x2dsearch\x2d3510\x2dcrawler\x2dview\x2din\x2ddiscover\u2022\x20
+SETUVAR _hydro_git_44608:main\x20\u21934\x20
+SETUVAR _hydro_git_45482:\x1d
+SETUVAR _hydro_git_46128:sloanelybutsurely/engines\x2dalias\x2dmgmt\x20
+SETUVAR _hydro_git_57761:sloanelybutsurely/engines\x2dalias\x2dmgmt\u2022\x20
+SETUVAR _hydro_git_61093:4103\x2dsearch\x2dpreview\x2dschema\x2dbugs\x20
+SETUVAR _hydro_git_67901:search\x2dpreview\u2022\x20
+SETUVAR _hydro_git_70742:\x1d
 SETUVAR _hydro_git_71345:main\x20
+SETUVAR _hydro_git_71672:ent\x2dsearch\x2d3510\x2dcrawler\x2dview\x2din\x2ddiscover\u2022\x20\u219123\x20\u21932\x20
 SETUVAR _hydro_git_75079:main\x20
+SETUVAR _hydro_git_77117:4033\x2dsearch\x2dpreview\x2dsorting\u2022\x20\u21912\x20
+SETUVAR _hydro_git_79331:main\u2022\x20
+SETUVAR _hydro_git_84693:main\x20
 SETUVAR _hydro_git_8703:main\x20
+SETUVAR _hydro_git_9667:sloanelybutsurely/engines\x2dalias\x2dmgmt\u2022\x20\u21912\x20
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
