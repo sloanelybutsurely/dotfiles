@@ -15,16 +15,17 @@ if status is-interactive
 end
 
 abbr -a g    git
-abbr -a gp   git push --force-with-lease
-abbr -a gf   git fetch
-abbr -a gpl  git pull
-abbr -a gplr git pull --rebase 
-abbr -a gst  git status
-abbr -a gcb  git checkout -b
-abbr -a gco  git checkout
 abbr -a ga   git add
 abbr -a gc   git commit
-abbr -a grr  git rebase --continue
+abbr -a gcb  git checkout -b
+abbr -a gco  git checkout
+abbr -a gd   git diff
+abbr -a gf   git fetch
+abbr -a gp   git push --force-with-lease
+abbr -a gpl  git pull
+abbr -a gplr git pull --rebase 
 abbr -a gr   git rebase
+abbr -a grr  git rebase --continue
+abbr -a gst  git status
 
 abbr -a fug  nvim +Git +only
