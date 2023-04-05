@@ -37,7 +37,7 @@ map('n', '<leader>o', '<cmd>only<cr>')
 map('n', '<esc>', '<cmd>nohlsearch<cr>')
 
 wk.register({
-  ['<space>'] = { '<cmd>Telescope find_files<cr>', 'File file in project' },
+  ['<space>'] = { '<cmd>Telescope find_files theme=dropdown<cr>', 'File file in project' },
   ['/'] = { '<cmd>Telescope live_grep<cr>', 'Search project' },
   ['<tab>'] = { '<cmd>NERDTreeToggle<cr>', 'Toggle NERDTree' },
 
@@ -45,8 +45,8 @@ wk.register({
     name = 'file',
     e = { '<cmd>Telescope find_files cwd=~/.config/nvim<cr>', 'Find file in .config/nvim' },
     E = { '<cmd>e ~/.config/nvim<cr>', 'Browse .config/nvim' },
-    f = { '<cmd>Telescope find_files cwd=~/ hidden=true no_ignore=true no_ignore_parent=true follow=true<cr>', 'Find file' },
-    F = { '<cmd>Telescope find_files<cr>', 'File file from here' },
+    f = { '<cmd>Telescope find_files cwd=~/ hidden=true no_ignore=true no_ignore_parent=true follow=true theme=dropdown<cr>', 'Find file' },
+    F = { '<cmd>Telescope find_files theme=dropdown<cr>', 'File file from here' },
     l = { '<cmd>NERDTreeFind<cr>', 'Locate file' },
     r = { '<cmd>Telescope oldfiles<cr>', 'Recent files' },
   },
@@ -64,13 +64,24 @@ wk.register({
   g = {
     name = 'git',
     s = { '<cmd>Git<cr>', 'Status' },
-    f = { '<cmd>Git fetch<cr>', 'Fetch' },
     p = { '<cmd>Git push --force-with-lease -u origin head<cr>', 'Push' },
+    f = { 
+      name = 'fetch',
+      o = { '<cmd>Git fetch origin<cr>', 'origin' },
+      u = { '<cmd>Git fetch upstream<cr>', 'upstream' },
+    },
     r = { 
       name = 'rebase',
-      m = { '<cmd>Git rebase origin/main<cr>', 'origin/main' },
-      M = { '<cmd>Git rebase --interactive origin/main<cr>', 'Interactive origin/main' }
+      o = { '<cmd>Git rebase origin/main<cr>', 'origin/main' },
+      O = { '<cmd>Git rebase --interactive origin/main<cr>', '-i origin/main' },
+      u = { '<cmd>Git rebase upstream/main<cr>', 'upstream/main' },
+      U = { '<cmd>Git rebase upstream/main<cr>', '-i upstream/main' },
     }
+  },
+
+  i = {
+    name = 'insert',
+    e = { '<cmd>Telescope emoji theme=dropdown<cr>', 'emoji' },
   },
 
 }, { prefix = '<leader>' })
