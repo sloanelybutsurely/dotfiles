@@ -27,5 +27,6 @@ abbr -a gplr git pull --rebase
 abbr -a gr   git rebase
 abbr -a grr  git rebase --continue
 abbr -a gst  git status
+abbr -a gca  git commit -a
 
 abbr -a fug  nvim +Git +only
