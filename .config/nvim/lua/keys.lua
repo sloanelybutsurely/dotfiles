@@ -75,7 +75,7 @@ wk.register({
       o = { '<cmd>Git rebase origin/main<cr>', 'origin/main' },
       O = { '<cmd>Git rebase --interactive origin/main<cr>', '-i origin/main' },
       u = { '<cmd>Git rebase upstream/main<cr>', 'upstream/main' },
-      U = { '<cmd>Git rebase upstream/main<cr>', '-i upstream/main' },
+      U = { '<cmd>Git rebase --interactive upstream/main<cr>', '-i upstream/main' },
     }
   },
 
