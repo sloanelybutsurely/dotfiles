@@ -1,0 +1,19 @@
+set nocompatible
+
+set number
+set relativenumber
+
+" Intelli
+" https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+let g:mapleader = ' '
+
+nnoremap ; :
+nnoremap q; q:
+vnoremap ; :
+vnoremap q; q:
+
+nnoremap <leader>w <cmd>w<cr>
+nnoremap <leader>q <cmd>q<cr>
