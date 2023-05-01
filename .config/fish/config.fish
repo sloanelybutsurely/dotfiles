@@ -21,7 +21,8 @@ abbr -a gcb  git checkout -b
 abbr -a gco  git checkout
 abbr -a gd   git diff
 abbr -a gf   git fetch
-abbr -a gp   git push --force-with-lease
+abbr -a gp   git push
+abbr -a gP   git push --force-with-lease
 abbr -a gpl  git pull
 abbr -a gplr git pull --rebase 
 abbr -a gr   git rebase
