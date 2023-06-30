@@ -1,6 +1,5 @@
 eval (/opt/homebrew/bin/brew shellenv)
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
-direnv hook fish | source
+source ~/.asdf/asdf.fish
 
 if status is-interactive
   fish_vi_key_bindings
@@ -31,3 +30,5 @@ abbr -a gst  git status
 abbr -a gca  git commit -a
 
 abbr -a fug  nvim +Git +only
+
+abbr -a nr   npm run
