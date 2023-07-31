@@ -153,9 +153,30 @@ return require('packer').startup(function(use)
 
   use {
     'elixir-tools/elixir-tools.nvim',
+    tag = 'v0.6.5',
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
-      require('elixir').setup()
+      local elixir = require('elixir')
+      local elixirls = require('elixir.elixirls')
+
+      elixir.setup({
+        nextls = { enable = true },
+        credo = {},
+        elixirls = {
+          tag = 'v0.15.1',
+          enable = true,
+          settings = elixirls.settings({
+            dialyzerEnabled = false,
+            fetchDeps = true,
+            enableTestLenses = true,
+            suggestSpecs = true,
+          }),
+          on_attach = function(client, bufnr)
+            vim.keymap.set({'n', 'v'}, '<leader>fp', ':ElixirFromPipe<cr>', { buffer = true, noremap = true })
+            vim.keymap.set({'n', 'v'}, '<leader>tp', ':ElixirToPipe<cr>', { buffer = true, noremap = true })
+          end
+        }
+      })
     end
   }
 
