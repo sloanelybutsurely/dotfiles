@@ -47,6 +47,8 @@ return require('packer').startup(function(use)
     requires = {
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
+      'mfussenegger/nvim-lint',
+      'mhartington/formatter.nvim',
     },
     run = ':MasonUpdate',
     config = function()
@@ -145,6 +147,11 @@ return require('packer').startup(function(use)
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('emoji')
     end
+  }
+
+  use {
+    'folke/trouble.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' },
   }
 
   use { 'folke/which-key.nvim', config = function() require('keys') end }
