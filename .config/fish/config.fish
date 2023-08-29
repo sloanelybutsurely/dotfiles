@@ -15,6 +15,7 @@ end
 
 abbr -a g    git
 abbr -a ga   git add
+abbr -a gb   git branch
 abbr -a gc   git commit
 abbr -a gcb  git checkout -b
 abbr -a gco  git checkout
