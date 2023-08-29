@@ -66,17 +66,14 @@ wk.register({
     s = { '<cmd>Git<cr>', 'Status' },
     p = { '<cmd>Git push -u origin head<cr>', 'Push' },
     P = { '<cmd>Git push -u origin head --force-with-lease<cr>', 'Push (force with lease)' },
-    f = {
-      name = 'fetch',
-      o = { '<cmd>Git fetch origin<cr>', 'origin' },
-      u = { '<cmd>Git fetch upstream<cr>', 'upstream' },
-    },
+    f = { '<cmd>Git fetch<cr>', 'Fetch' },
     r = {
       name = 'rebase',
       o = { '<cmd>Git rebase origin/main<cr>', 'origin/main' },
       O = { '<cmd>Git rebase --interactive origin/main<cr>', '-i origin/main' },
-      u = { '<cmd>Git rebase upstream/main<cr>', 'upstream/main' },
-      U = { '<cmd>Git rebase --interactive upstream/main<cr>', '-i upstream/main' },
+      m = { '<cmd>Git rebase origin/master<cr>', 'origin/master' },
+      M = { '<cmd>Git rebase --interactive origin/master<cr>', '-i origin/master' },
+      r = { '<cmd>Git rebase ', 'rebase ...' },
     }
   },
 
@@ -110,8 +107,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     -- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    -- vim.keymap.set('n', '<space>f', function()
-    --   vim.lsp.buf.format { async = true }
-    -- end, opts)
+    vim.keymap.set('n', '<leader>F', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
   end,
 })
