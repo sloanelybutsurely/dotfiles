@@ -64,8 +64,8 @@ wk.register({
   g = {
     name = 'git',
     s = { '<cmd>Git<cr>', 'Status' },
-    p = { '<cmd>Git push -u origin head<cr>', 'Push' },
-    P = { '<cmd>Git push -u origin head --force-with-lease<cr>', 'Push (force with lease)' },
+    p = { '<cmd>Git push<cr>', 'Push' },
+    P = { '<cmd>Git push --force-with-lease<cr>', 'Push (force with lease)' },
     f = { '<cmd>Git fetch<cr>', 'Fetch' },
     r = {
       name = 'rebase',
