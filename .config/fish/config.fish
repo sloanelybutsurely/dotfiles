@@ -13,6 +13,8 @@ if status is-interactive
   end
 end
 
+set -x EDITOR nvim
+
 abbr -a g    git
 abbr -a ga   git add
 abbr -a gb   git branch
@@ -33,3 +35,10 @@ abbr -a gca  git commit -a
 abbr -a fug  nvim +Git +only
 
 abbr -a nr   npm run
+
+abbr -a y    yarn
+abbr -a yb   yarn bootstrap
+abbr -a ym   yarn migrate
+abbr -a yf   yarn format-since
+
+abbr -a mux  tmuxinator
