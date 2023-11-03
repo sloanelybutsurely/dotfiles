@@ -37,7 +37,7 @@ map('n', '<leader>o', '<cmd>only<cr>')
 map('n', '<esc>', '<cmd>nohlsearch<cr>')
 
 wk.register({
-  ['<space>'] = { '<cmd>Telescope find_files theme=dropdown<cr>', 'File file in project' },
+  ['<space>'] = { '<cmd>Telescope find_files<cr>', 'File file in project' },
   ['/'] = { '<cmd>Telescope live_grep<cr>', 'Search project' },
   ['<tab>'] = { '<cmd>NERDTreeToggle<cr>', 'Toggle NERDTree' },
 
@@ -81,6 +81,12 @@ wk.register({
     name = 'insert',
     e = { '<cmd>Telescope emoji theme=dropdown<cr>', 'emoji' },
   },
+
+  n = {
+    name = 'line numbers',
+    a = { '<cmd>set number norelativenumber<cr>', 'absolute' },
+    r = { '<cmd>set number relativenumber<cr>', 'relative' },
+  }
 
 }, { prefix = '<leader>' })
 

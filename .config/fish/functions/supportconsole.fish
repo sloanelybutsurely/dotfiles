@@ -16,7 +16,7 @@ function get_vitally_prod_region
 end
 
 function supportconsole
-  log_into_aws
+  log_into_vitally_aws
 
   set region (get_vitally_prod_region "$argv")
   set target (aws ec2 describe-instances --profile $vitally_aws_profile --region $region --filter Name=instance-state-name,Values=running Name=tag:Class,Values=support-bastion-host Name=tag:Environment,Values=production --query "Reservations[0].Instances[0].InstanceId" --output text)
