@@ -1,5 +1,5 @@
 function ls
-  command exa --all \
+  command eza --all \
     --long \
     --group-directories-first \
     --tree \
