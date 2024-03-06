@@ -1,3 +1,4 @@
 # See the docs for explanations: https://asdf-vm.com/manage/configuration.html
 
 legacy_version_file = yes
+always_keep_download=yes
