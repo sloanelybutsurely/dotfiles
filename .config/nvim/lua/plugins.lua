@@ -134,7 +134,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
     requires = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
@@ -160,23 +160,21 @@ return require('packer').startup(function(use)
 
   use {
     'elixir-tools/elixir-tools.nvim',
-    tag = 'v0.6.5',
+    tag = 'stable',
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       local elixir = require('elixir')
       local elixirls = require('elixir.elixirls')
 
       elixir.setup({
-        nextls = { enable = true },
-        credo = {},
+        credo = { enable = true },
         elixirls = {
-          tag = 'v0.15.1',
           enable = true,
           settings = elixirls.settings({
             dialyzerEnabled = false,
             fetchDeps = true,
             enableTestLenses = true,
-            suggestSpecs = true,
+            suggestSpecs = false,
           }),
           on_attach = function(client, bufnr)
             vim.keymap.set({'n', 'v'}, '<leader>fp', ':ElixirFromPipe<cr>', { buffer = true, noremap = true })
