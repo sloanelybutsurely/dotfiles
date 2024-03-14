@@ -16,7 +16,30 @@ function worktree
     git worktree add -b "$branchname" "../$dirname"
   end
 
-  if test -d "node_modules"
-    cp -Rc node_modules ../$dirname/node_modules
+  # Node projects
+  # if test -e "package.json"
+  #   if test -d "node_modules"
+  #     cp -Rc node_modules ../$dirname/node_modules
+  #   end
+  # end
+
+  # Elixir projects
+  if test -e "mix.exs" and 
+    if test -d "_build"
+      cp -cR _build ../$dirname/
+    end
+    if test -d "deps"
+      cp -cR deps ../$dirname/
+    end
   end
+
+  # typically untracked files
+  if test -e ".envrc"
+    cp .envrc ../$dirname/
+  end
+  if test -e ".npmrc"
+    cp .npmrc ../$dirname/
+  end
+
+  cd ../$dirname
 end
