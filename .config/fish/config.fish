@@ -42,3 +42,7 @@ abbr -a ym   yarn migrate
 abbr -a yf   yarn format-since
 
 abbr -a mux  tmuxinator
+
+# fix common "yadm" typos
+abbr -a ydam yadm
+abbr -a ydma yadm
