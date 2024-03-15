@@ -1,7 +1,14 @@
 # inspired heavily by https://github.com/llimllib/personal_code/blob/daab9eb1da9f777df57c742e5629247a94b54947/homedir/.local/bin/worktree
 
 function worktree
+  set worktree_commands add list lock move prune remove repair unlock
   set branchname $argv[1]
+
+  if contains $branchname $worktree_commands
+    echo "did you mean `git worktree $branchname`?"
+    return 1
+  end
+
   set dirname (string replace -a "/" "_" $branchname)
 
   if not git pull
