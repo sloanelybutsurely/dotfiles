@@ -42,5 +42,4 @@ function worktree
   end
 
   cd ../$dirname
-  direnv allow
 end
