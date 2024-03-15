@@ -24,7 +24,7 @@ function worktree
   # end
 
   # Elixir projects
-  if test -e "mix.exs" and 
+  if test -e "mix.exs"
     if test -d "_build"
       cp -cR _build ../$dirname/
     end
@@ -42,4 +42,5 @@ function worktree
   end
 
   cd ../$dirname
+  direnv allow
 end
