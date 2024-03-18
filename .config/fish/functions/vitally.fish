@@ -1,9 +1,18 @@
 function vitally
   set cmd $argv[1]
-  set cmds start stop session-name init
-  if not contains $cmd $cmds
+
+  if not contains $cmd start stop session-name init do
     echo "usage: vitally <CMD>; <CMD>: start, stop, session-name, init"
+    return 1
+  end
+
+  if test $cmd = "do"
+    set cmds (string replace -a ',' '' $argv[2..])
   else
-    eval "vitally-$cmd"
+    set cmds $cmd
+  end
+
+  for c in $cmds
+    eval "vitally-$c"
   end
 end
