@@ -1,0 +1,5 @@
+[tools]
+usage = "latest"
+node = "16.20.0"
+erlang = "26"
+elixir = "1.15"

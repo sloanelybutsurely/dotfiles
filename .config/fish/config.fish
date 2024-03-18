@@ -1,5 +1,5 @@
 eval (/opt/homebrew/bin/brew shellenv)
-source ~/.asdf/asdf.fish
+mise activate fish | source
 
 if status is-interactive
   fish_vi_key_bindings
@@ -46,3 +46,6 @@ abbr -a mux  tmuxinator
 # fix common "yadm" typos
 abbr -a ydam yadm
 abbr -a ydma yadm
+
+# mise shorthands
+abbr -a mr  mise run
