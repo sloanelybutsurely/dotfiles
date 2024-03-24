@@ -3,8 +3,10 @@
 
 ## Usage
 
-1. Install [yadm](https://yadm.io/docs/install)
-2. Clone this repo using `yadm`
-    ```sh
-    yadm clone git@github.com:sloanelybutsurely/dotfiles.git
-    ```
+> [!INFO]
+> See [sloanelybutsurely/nix-darwin](https://github.com/sloanelybutsurely/nix-darwin) for complete setup instructions
+
+## TODO
+
+- [ ] Move `sloanelybutsurely/nix-darwin` into this repo
+- [ ] Add `bootstrap` scripts to install nix and setup `nix-darwin`
