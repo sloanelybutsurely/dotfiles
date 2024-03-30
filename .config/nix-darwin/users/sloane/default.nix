@@ -91,7 +91,7 @@
   programs.jujutsu = {
     enable = true;
     settings = {
-      core.fsmonitor = pkgs.watchman;
+      core.fsmonitor = "watchman";
       user = {
         name = "sloane";
         email = "1699281+sloanelybutsurely@users.noreply.github.com";
