@@ -152,7 +152,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "VictorMono Nerd Font Mono";
+      name = "RecMonoCasual Nerd Font Mono";
       size = 16;
     };
     settings = {
