@@ -108,10 +108,10 @@
       { key = ";"; action = ":"; }
       { key = "q;"; action = "q:"; }
 
-      { key = "<leader>y"; action = "\"+y"; }
-      { key = "<leader>Y"; action = "\"+Y"; }
-      { key = "<leader>p"; action = "\"+p"; }
-      { key = "<leader>P"; action = "\"+P"; }
+      { key = "<leader>y"; action = ''"+y''; }
+      { key = "<leader>Y"; action = ''"+Y''; }
+      { key = "<leader>p"; action = ''"+p''; }
+      { key = "<leader>P"; action = ''"+P''; }
 
       { key = "<leader>w"; action = "<cmd>w<cr>"; }
       { key = "<leader>q"; action = "<cmd>q<cr>"; }

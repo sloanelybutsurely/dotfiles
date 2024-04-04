@@ -66,6 +66,8 @@
       "unnaturalscrollwheels"
 
       "font-cousine-nerd-font"
+      "font-victor-mono-nerd-font"
+      "font-recursive-mono-nerd-font"
     ];
     masApps = {
       "Things 3" = 904280696;

@@ -151,8 +151,8 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Cousine Nerd Font Mono Regular";
-      size = 18;
+      name = "VictorMono Nerd Font Mono";
+      size = 16;
     };
     settings = {
       confirm_os_window_close = 0;
