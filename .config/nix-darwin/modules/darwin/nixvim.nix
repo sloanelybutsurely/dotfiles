@@ -12,10 +12,6 @@
       expandtab = true;
     };
 
-    colorschemes.catppuccin = {
-      enable = true;
-      flavour = "frappe";
-    };
     extraPlugins = with pkgs.vimPlugins; [
       vim-abolish
       vim-dispatch
@@ -28,18 +24,27 @@
 
       nerdtree
 
-      (
-        pkgs.vimUtils.buildVimPlugin {
-          name = "vim-jjdescription";
-          src = pkgs.fetchFromGitHub {
-            owner = "avm99963";
-            repo = "vim-jjdescription";
-            rev = "c9bf9f849ead3961ae38ab33f68306996e64c6e8";
-            hash = "sha256-qnZFuXbzpm2GN/+CfksFfW2O+qTosUZcUagqCTzmtWo=";
-          };
-        }
-      )
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "vim-jjdescription";
+        src = pkgs.fetchFromGitHub {
+          owner = "avm99963";
+          repo = "vim-jjdescription";
+          rev = "c9bf9f849ead3961ae38ab33f68306996e64c6e8";
+          hash = "sha256-qnZFuXbzpm2GN/+CfksFfW2O+qTosUZcUagqCTzmtWo=";
+        };
+      })
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "vim-helix";
+        src = pkgs.fetchFromGitHub {
+          owner = "foxoman";
+          repo = "vim-helix";
+          rev = "db32bbdf5cf0b639bdd7ef87c23ac2473a482627";
+          hash = "sha256-rBHgZsBSf4iHI2X6W8PydmIqlv4Ok8nT+Tgj5Dxi73M=";
+        };
+      })
     ];
+
+    colorscheme = "helix-boo";
 
     plugins = {
       surround.enable = true;
