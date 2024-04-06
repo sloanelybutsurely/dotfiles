@@ -49,6 +49,7 @@
     shellAbbrs = {
       vim = "nvim";
       cat = "bat";
+      drs = "darwin-rebuild switch --flake ~/.config/nix-darwin";
 
       # git
       g    = "git";
