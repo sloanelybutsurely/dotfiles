@@ -132,7 +132,7 @@
       vim-tmux-navigator
       {
         plugin = catppuccin;
-        extraConfig = "set -g @catppuccin_flavour 'frappe'";
+        extraConfig = "set -g @catppuccin_flavour 'mocha'";
       }
     ];
   };
@@ -159,7 +159,7 @@
       confirm_os_window_close = 0;
       paste_actions = "quote-urls-at-prompt,confirm-if-large";
     };
-    theme = "Catppuccin-Frappe";
+    theme = "Catppuccin-Mocha";
   };
 
   programs.bat.enable = true;
