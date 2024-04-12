@@ -8,12 +8,21 @@
   ];
 
   homebrew = {
+    brews = [
+      "flyctl"
+    ];
+    taps = [
+      "homebrew/cask-versions"
+    ];
     casks = [
       "discord"
       "postgres-unofficial"
       "postico"
       "syncthing"
       "tailscale"
+      "obs"
+      "superduper"
+      "ableton-live-suite11"
     ];
   };
 }
