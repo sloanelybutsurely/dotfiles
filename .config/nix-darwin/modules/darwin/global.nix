@@ -52,11 +52,14 @@
       upgrade = true;
     };
     brews = [ "openssl" ];
-    taps = [ "homebrew/cask-fonts" ];
+    taps = [
+      "homebrew/cask-versions"
+      "homebrew/cask-fonts"
+    ];
     casks = [
       "1password"
       "alfred"
-      "dash"
+      "dash6"
       "fantastical"
       "firefox"
       "karabiner-elements"

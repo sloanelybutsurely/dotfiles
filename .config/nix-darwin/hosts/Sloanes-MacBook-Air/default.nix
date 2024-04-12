@@ -11,9 +11,6 @@
     brews = [
       "flyctl"
     ];
-    taps = [
-      "homebrew/cask-versions"
-    ];
     casks = [
       "discord"
       "postgres-unofficial"
