@@ -10,6 +10,7 @@
       yadm
       devenv
       watchman
+      fd
     ];
 
     sessionVariables = {
