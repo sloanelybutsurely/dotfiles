@@ -51,7 +51,10 @@
       autoUpdate = true;
       upgrade = true;
     };
-    brews = [ "openssl" ];
+    brews = [
+      "openssl"
+      "wxwidgets"
+    ];
     taps = [
       "homebrew/cask-versions"
       "homebrew/cask-fonts"
@@ -59,6 +62,7 @@
     casks = [
       "1password"
       "alfred"
+      "appcleaner"
       "dash6"
       "fantastical"
       "firefox"

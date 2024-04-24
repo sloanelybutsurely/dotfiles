@@ -32,6 +32,7 @@ function worktree
 
   # Elixir projects
   if test -e "mix.exs"
+    echo "Elixir project detected. Copying over _build and deps"
     if test -d "_build"
       cp -cR _build ../$dirname/
     end
@@ -42,6 +43,7 @@ function worktree
 
   # typically untracked files
   if test -e ".envrc"
+    echo "Copying over .envrc"
     cp .envrc ../$dirname/
   end
   if test -e ".npmrc"

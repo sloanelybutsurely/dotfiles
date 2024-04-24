@@ -44,6 +44,15 @@
           hash = "sha256-rBHgZsBSf4iHI2X6W8PydmIqlv4Ok8nT+Tgj5Dxi73M=";
         };
       })
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "vim-kitty";
+        src = pkgs.fetchFromGitHub {
+          owner = "fladson";
+          repo = "vim-kitty";
+          rev = "4f3f2901717320f80a1e16a868f706762be8535b";
+          hash = "sha256-tK7G5m3X8k2HjUA6Rm6Lz82K2GjXzcc1JNlxWrbBxGU=";
+        };
+      })
     ];
 
     colorscheme = "helix-boo";
@@ -176,6 +185,8 @@
 
       { key = "<leader>w"; action = "<cmd>w<cr>"; }
       { key = "<leader>q"; action = "<cmd>q<cr>"; }
+      { key = "<leader>s"; action = "<cmd>split<cr>"; }
+      { key = "<leader>v"; action = "<cmd>vsplit<cr>"; }
       { key = "<esc>"; action = "<cmd>nohlsearch<cr>"; mode = "n"; }
 
       # root level leader commands

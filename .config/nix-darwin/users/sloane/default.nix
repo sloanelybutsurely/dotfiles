@@ -11,6 +11,7 @@
       devenv
       watchman
       fd
+      wget
     ];
 
     sessionVariables = {

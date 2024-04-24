@@ -5,6 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     rustup
+    stripe-cli
   ];
 
   homebrew = {
