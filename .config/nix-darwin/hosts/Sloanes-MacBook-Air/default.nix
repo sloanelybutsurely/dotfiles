@@ -21,6 +21,7 @@
       "obs"
       "superduper"
       "ableton-live-suite11"
+      "vuescan"
     ];
   };
 }
