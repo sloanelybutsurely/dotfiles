@@ -53,6 +53,15 @@
           hash = "sha256-tK7G5m3X8k2HjUA6Rm6Lz82K2GjXzcc1JNlxWrbBxGU=";
         };
       })
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "elixir-tools";
+        src = pkgs.fetchFromGitHub {
+          owner = "elixir-tools";
+          repo = "elixir-tools.nvim";
+          rev = "v0.14.0";
+          hash = "sha256-U6db1n/RIpT7Dd54e9iI/PjO1BhDpMyNPfaph+dUk7k=";
+        };
+      })
     ];
 
     colorscheme = "helix-boo";
@@ -72,7 +81,7 @@
       lsp = {
         enable = true;
         servers = {
-          elixirls.enable = true;
+          # elixirls.enable = true;
           tsserver.enable = true;
           nil_ls.enable = true;
         };
@@ -272,6 +281,18 @@
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
       end,
+    })
+
+    local elixir = require('elixir')
+    require('elixir').setup({
+      nextls = {
+        enable = true,
+        init_options = {
+          experimental = { completions = { enable = true } },
+        }
+      },
+      credo = { enable = false },
+      elixirls = { enable = false },
     })
     '';
   };
