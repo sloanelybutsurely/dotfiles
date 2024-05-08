@@ -20,7 +20,7 @@
       "tailscale"
       "obs"
       "superduper"
-      "ableton-live-suite11"
+      "ableton-live-suite@11"
       "vuescan"
     ];
   };

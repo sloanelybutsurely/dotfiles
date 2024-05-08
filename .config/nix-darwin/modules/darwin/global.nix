@@ -63,7 +63,7 @@
       "1password"
       "alfred"
       "appcleaner"
-      "dash6"
+      "dash@6"
       "fantastical"
       "firefox"
       "karabiner-elements"
