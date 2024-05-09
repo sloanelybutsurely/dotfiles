@@ -56,7 +56,6 @@
       "wxwidgets"
     ];
     taps = [
-      "homebrew/cask-versions"
       "homebrew/cask-fonts"
     ];
     casks = [
