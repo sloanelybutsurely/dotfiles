@@ -57,6 +57,23 @@
       ];
     };
 
+    darwinConfigurations."tid27880sperrau" = darwin.lib.darwinSystem {
+      # Set Git commit hash for darwin-version.
+      system.configurationRevision = self.rev or self.dirtyRev or null;
+
+      modules = globalDarwinModules ++ [ 
+        ./hosts/tid27880sperrau/default.nix
+        {
+          users.users.sperrault.home = "/Users/sperrault";
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.sperrault = import ./users/sperrault/default.nix;
+          };
+        }
+      ];
+    };
+
     # Expose the package set, including overlays, for convenience.
     # darwinPackages = self.darwinConfigurations."Sloanes-MacBook-Air".pkgs;
   };
