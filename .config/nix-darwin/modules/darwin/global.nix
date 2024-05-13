@@ -70,6 +70,7 @@
       "kitty"
       "obsidian"
       "unnaturalscrollwheels"
+      "syncthing"
 
       "font-cousine-nerd-font"
       "font-victor-mono-nerd-font"
