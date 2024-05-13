@@ -77,6 +77,7 @@
     ];
     masApps = {
       "Things 3" = 904280696;
+      "Hand Mirror" = 1502839586;
     };
   };
 
