@@ -146,15 +146,15 @@
             { name = "snippy"; }
           ];
         };
-        cmdline = {
-          ":" = {
-            mapping.__raw = "cmp.mapping.preset.cmdline()";
-            sources = [
-              { name = "path"; }
-              { name = "cmdline"; }
-            ];
-          };
-        };
+        # cmdline = {
+        #   ":" = {
+        #     mapping.__raw = "cmp.mapping.preset.cmdline()";
+        #     sources = [
+        #       { name = "path"; }
+        #       { name = "cmdline"; }
+        #     ];
+        #   };
+        # };
       };
 
       treesitter = {
