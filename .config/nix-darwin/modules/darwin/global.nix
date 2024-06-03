@@ -71,6 +71,7 @@
       "obsidian"
       "unnaturalscrollwheels"
       "syncthing"
+      "rectangle"
 
       "font-cousine-nerd-font"
       "font-victor-mono-nerd-font"
