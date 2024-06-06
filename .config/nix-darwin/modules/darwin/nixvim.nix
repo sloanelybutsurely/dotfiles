@@ -58,8 +58,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "elixir-tools";
           repo = "elixir-tools.nvim";
-          rev = "v0.14.0";
-          hash = "sha256-U6db1n/RIpT7Dd54e9iI/PjO1BhDpMyNPfaph+dUk7k=";
+          rev = "v0.14.2";
+          hash = "sha256-ESL/H/l5Yarcuo3MjBplKwox8E6CBxvWrpciyJeaES0=";
         };
       })
     ];
@@ -291,7 +291,7 @@
           experimental = { completions = { enable = true } },
         }
       },
-      credo = { enable = false },
+      credo = { enable = true },
       elixirls = { enable = false },
     })
     '';
