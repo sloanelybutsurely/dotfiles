@@ -12,6 +12,7 @@
     ];
     casks = [
       "slack"
+      "postgres-unofficial"
     ];
   };
 }
