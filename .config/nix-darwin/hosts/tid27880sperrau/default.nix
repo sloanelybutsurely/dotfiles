@@ -13,7 +13,6 @@
     casks = [
       "slack"
       "postgres-unofficial"
-      "omnifocus"
     ];
   };
 }

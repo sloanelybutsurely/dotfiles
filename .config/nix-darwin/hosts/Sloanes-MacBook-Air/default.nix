@@ -23,7 +23,6 @@
       "ableton-live-suite@11"
       "vuescan"
       "fujitsu-scansnap-home"
-      "omnifocus"
     ];
   };
 }
