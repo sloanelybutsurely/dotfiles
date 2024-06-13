@@ -81,6 +81,9 @@
       signByDefault = true;
       key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID0TH2GezEx8+zlKBqUb7rBsbmghnd1u4nX6YpQr28Zw";
     };
+    ignores = [
+      ".DS_Store"
+    ];
     extraConfig = {
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
