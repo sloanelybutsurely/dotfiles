@@ -22,6 +22,9 @@
       vim-sort-motion
       vim-textobj-user
 
+      vim-dadbod
+      vim-dadbod-completion
+
       nerdtree
 
       nvim-snippy
