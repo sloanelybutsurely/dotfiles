@@ -1,0 +1,23 @@
+[commit]
+	gpgSign = true
+
+[gpg]
+	format = "ssh"
+	program = "/nix/store/6s1l8pqj9xqqhdg0c7qd7rx4kpg1hsk9-gnupg-2.4.4/bin/gpg2"
+
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[init]
+	defaultBranch = "main"
+
+[push]
+	autoSetupRemote = true
+
+[tag]
+	gpgSign = true
+
+[user]
+	email = "1699281+sloanelybutsurely@users.noreply.github.com"
+	name = "sloane"
+	signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID0TH2GezEx8+zlKBqUb7rBsbmghnd1u4nX6YpQr28Zw"
