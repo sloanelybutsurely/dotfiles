@@ -11,6 +11,7 @@ program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [ui]
 paginate = "never"
+default-command = "log"
 
 [user]
 email = "1699281+sloanelybutsurely@users.noreply.github.com"
