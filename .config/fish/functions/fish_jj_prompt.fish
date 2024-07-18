@@ -14,7 +14,7 @@ function fish_jj_prompt --description 'Write out the jj prompt'
     end
 
     # Generate prompt
-    jj log --ignore-working-copy --no-graph --color always -r @ -T '
+    jj log --ignore-working-copy --no-graph --color always -r @- -T '
         surround(
             " (",
             ")",
