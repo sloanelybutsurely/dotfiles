@@ -15,3 +15,6 @@ paginate = "never"
 [user]
 email = "1699281+sloanelybutsurely@users.noreply.github.com"
 name = "sloane"
+
+[revsets]
+log = "ancestors(reachable(@ | mine(), mutable()), 2) | @"
