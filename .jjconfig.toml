@@ -12,10 +12,11 @@ program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [ui]
 paginate = "never"
 default-command = "log"
+editor = "nvim"
 
 [user]
 email = "1699281+sloanelybutsurely@users.noreply.github.com"
 name = "sloane"
 
 [revsets]
-log = "ancestors(reachable(@ | mine(), mutable()), 2) | @"
+log = "trunk() | ancestors(reachable(@ | mine(), mutable()), 2) | @"
