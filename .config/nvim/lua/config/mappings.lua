@@ -39,6 +39,10 @@ wk.add({
   -- File
   { '<leader>fl', '<cmd>NERDTreeFind<cr>', desc = 'Show in NERDTree' },
 
+  -- Window
+  { '<leader>"', '<cmd>split<cr>', desc = 'Split horizontally' },
+  { '<leader>%', '<cmd>vsplit<cr>', desc = 'Split vertically' },
+
 })
 
 -- wk.register({
