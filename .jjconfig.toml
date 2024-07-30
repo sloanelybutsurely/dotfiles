@@ -15,7 +15,7 @@ default-command = "log"
 editor = "nvim"
 
 [user]
-email = "1699281+sloanelybutsurely@users.noreply.github.com"
+email = "git@sloanelysbutsurely.com"
 name = "sloane"
 
 [revsets]

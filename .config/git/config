@@ -18,6 +18,6 @@
 	gpgSign = true
 
 [user]
-	email = "1699281+sloanelybutsurely@users.noreply.github.com"
+	email = "git@sloanelybutsurely.com"
 	name = "sloane"
 	signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID0TH2GezEx8+zlKBqUb7rBsbmghnd1u4nX6YpQr28Zw"
