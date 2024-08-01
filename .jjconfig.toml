@@ -20,3 +20,6 @@ name = "sloane"
 
 [revsets]
 log = "trunk() | ancestors(reachable(@ | mine(), mutable()), 2) | @"
+
+[git]
+push-branch-prefix = "sloane/push-"
