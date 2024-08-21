@@ -1,2 +1,3 @@
 .DS_Store
 .iex.exs
+.elixir_ls
