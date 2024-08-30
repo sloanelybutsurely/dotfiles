@@ -13,8 +13,21 @@ return {
     config = function ()
       local lsp_zero = require('lsp-zero')
 
+      local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+      local function lsp_format_on_save(bufnr)
+        vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
+        vim.api.nvim_create_autocmd('BufWritePre', {
+          group = augroup,
+          buffer = bufnr,
+          callback = function ()
+            vim.lsp.buf.format()
+          end
+        })
+      end
+
       local lsp_attach = function (client, bufnr)
         lsp_zero.default_keymaps({ buffer = bufnr, preserve_mappings = false })
+        lsp_format_on_save(bufnr)
       end
 
       lsp_zero.extend_lspconfig({
