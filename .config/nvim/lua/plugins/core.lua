@@ -6,6 +6,9 @@ return {
   { 'tpope/vim-dispatch' },
   { 'tpope/vim-abolish' },
 
+  { 'christoomey/vim-sort-motion' },
+  { 'kana/vim-textobj-user' },
+
   {
     'christoomey/vim-tmux-navigator',
     cmd = {
