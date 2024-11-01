@@ -22,4 +22,4 @@ name = "sloane"
 log = "trunk() | ancestors(reachable(@ | mine(), mutable()), 2) | @"
 
 [git]
-push-branch-prefix = "sloane/push-"
+push-bookmark-prefix = "sloane/push-"

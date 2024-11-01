@@ -20,7 +20,7 @@ function fish_jj_prompt --description 'Write out the jj prompt'
             ")",
             separate(
                 " ",
-                branches.join(", "),
+                bookmarks.join(", "),
                 coalesce(
                     surround(
                         "\"",
