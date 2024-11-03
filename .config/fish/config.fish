@@ -9,11 +9,12 @@ if status is-interactive
 
   jj util completion fish | source
   
-  if not set -q TMUX
-    set -g TMUX tmux new-session -d -s default
-    eval $TMUX
-    tmux attach-session -d -t default
-  end
+  # # start or attach to default tmux session
+  # if not set -q TMUX
+  #   set -g TMUX tmux new-session -d -s default
+  #   eval $TMUX
+  #   tmux attach-session -d -t default
+  # end
 end
 
 set -xg SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
