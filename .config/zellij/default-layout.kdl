@@ -1,0 +1,11 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+    pane {
+        plugin location="https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"
+    }
+    pane size=2 borderless=true {
+        plugin location="status-bar"
+    }
+}
