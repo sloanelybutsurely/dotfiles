@@ -13,6 +13,7 @@ program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 paginate = "never"
 default-command = "log"
 editor = "nvim"
+diff.tool = ["difft", "--color=always", "$left", "$right"]
 
 [user]
 email = "git@sloanelybutsurely.com"
