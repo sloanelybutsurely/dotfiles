@@ -24,3 +24,6 @@ log = "trunk() | ancestors(reachable(@ | mine(), mutable()), 2) | @"
 
 [git]
 push-bookmark-prefix = "sloane/push-"
+
+[aliases]
+rebase-bookmarks = ["rebase", "-b", "all:bookmarks() & mine() ~trunk()", "-d", "main", "--skip-emptied"]
