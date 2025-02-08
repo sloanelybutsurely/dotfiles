@@ -24,6 +24,13 @@ log = "trunk() | ancestors(reachable(@ | mine(), mutable()), 2) | @"
 
 [git]
 push-bookmark-prefix = "sloane/push-"
+private-commits = 'wip | nocommit | dev-only'
 
 [aliases]
-rebase-bookmarks = ["rebase", "-b", "all:bookmarks() & mine() ~trunk()", "-d", "main", "--skip-emptied"]
+rebase-bookmarks = ["rebase", "-b", "all:current ~trunk()", "-d", "main", "--skip-emptied"]
+
+[revset-aliases]
+wip = 'description(regex:"^\\[(wip|WIP|todo|TODO)\\]|(wip|WIP|todo|TODO):?")'
+nocommit = 'description(regex:"^\\[(nocommit|NOCOMMIT)\\]|(nocommit|NOCOMMIT):?")'
+dev-only = 'description(regex:"^\\[(dev-only|DEV-ONLY)\\]|(dev-only|DEV-ONLY):?")'
+current = "(bookmarks() | wip | dev-only) & mine()"
