@@ -11,7 +11,17 @@ email = "git@sloanelybutsurely.com"
 behavior = "own"
 backend = "ssh"
 key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID0TH2GezEx8+zlKBqUb7rBsbmghnd1u4nX6YpQr28Zw"
+
+
+[[--scope]]
+--when.platforms = ["macos"]
+[--scope.signing]
 backends.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[[--scope]]
+--when.platforms = ["linux"]
+[--scope.signing]
+backends.ssh.program = "/opt/1Password/op-ssh-sign"
 
 [ui]
 paginate = "never"
