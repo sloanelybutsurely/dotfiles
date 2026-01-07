@@ -1,0 +1,46 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[fsmonitor]
+backend = "watchman"
+
+[user]
+name = "sloane"
+email = "git@sloanelybutsurely.com"
+
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID0TH2GezEx8+zlKBqUb7rBsbmghnd1u4nX6YpQr28Zw"
+backends.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[ui]
+paginate = "never"
+default-command = "log"
+editor = "nvim"
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
+
+[git]
+private-commits = "wip | nocommit | dev-only"
+
+[revsets]
+log = "trunk() | ancestors(reachable(@ | mine(), mutable()), 2) | @"
+
+[revset-aliases]
+wip = 'description(regex:"^\\[(wip|WIP|todo|TODO)\\]|(wip|WIP|todo|TODO):?")'
+nocommit = 'description(regex:"^\\[(nocommit|NOCOMMIT)\\]|(nocommit|NOCOMMIT):?")'
+dev-only = 'description(regex:"^\\[(dev-only|DEV-ONLY)\\]|(dev-only|DEV-ONLY):?")'
+current = '(bookmarks() | wip | dev-only) & mine() & ~immutable()'
+'closest_bookmark(to)' = "heads(::to & bookmarks())"
+
+[aliases]
+r = ["rebase"]
+s = ["squash"]
+n = ["new"]
+e = ["edit"]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+catchup = ["rebase", "-b", "current", "-d", "trunk()", "--skip-emptied"]
+changed = ["diff", "--files-only"]
+init = ["git", "init"]
+fetch = ["git", "fetch"]
+push = ["git", "push"]
+
