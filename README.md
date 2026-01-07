@@ -16,6 +16,8 @@ configurations are available below:
 
 installing configuration for a given program:
 
-```sh stow <program> -t $HOME --dotfiles ```
+```sh
+stow <program> -t $HOME --dotfiles
+```
 
 [stow]: https://www.gnu.org/software/stow/
