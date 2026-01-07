@@ -14,10 +14,16 @@ configurations are available below:
 
 ## setup
 
-installing configuration for a given program:
+installing:
 
 ```sh
-stow <program> -t $HOME --dotfiles
+stow . -t $HOME --dotfiles
+```
+
+uninstalling:
+
+```sh
+stow . -t $HOME --dotfiles --delete
 ```
 
 [stow]: https://www.gnu.org/software/stow/
