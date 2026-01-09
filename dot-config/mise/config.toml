@@ -2,3 +2,6 @@
 bun = "latest"
 node = "latest"
 ruby = "latest"
+
+[settings]
+experimental = true
