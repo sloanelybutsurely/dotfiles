@@ -32,6 +32,9 @@ diff-formatter = ["difft", "--color=always", "$left", "$right"]
 [git]
 private-commits = "wip | nocommit | dev-only"
 
+[templates]
+git_push_bookmark = '"sloane/push-" ++ change_id.short()'
+
 [revsets]
 log = "trunk() | ancestors(reachable(@ | mine(), mutable()), 2) | @"
 
