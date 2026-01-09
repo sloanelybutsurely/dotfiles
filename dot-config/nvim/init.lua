@@ -55,9 +55,7 @@ require("lazy").setup({
     "kylechui/nvim-surround",
     version = "^3.0.0",
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({})
-    end
+    opts = {},
   },
 
   {
@@ -74,13 +72,82 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     version = "^1.14.0",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("nvim-tree").setup({})
-    end,
+    opts = {},
     keys = {
       { "<leader><tab>", "<cmd>NvimTreeToggle<cr>" },
       { "<leader>fl", "<cmd>NvimTreeFindFile<cr>" },
     },
+  },
+
+  {
+    "mason-org/mason-lspconfig.nvim",
+    version = "^v2.1.0",
+    dependencies = {
+      { "mason-org/mason.nvim", version = "^v2.2.1", opts = {} },
+      { "neovim/nvim-lspconfig", version = "^v2.5.0"}
+    },
+    config = function()
+      require("mason-lspconfig").setup({})
+
+      local lspconfig = require("lspconfig")
+      for _, server in ipairs(require("mason-lspconfig").get_installed_servers()) do
+        lspconfig[server].setup({})
+      end
+    end,
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      {
+        "L3MON4D3/LuaSnip",
+        version = "^v2.4.1",
+        build = "make install_jsregexp",
+      },
+    },
+    config = function()
+      local cmp = require("cmp")
+
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+          end
+        },
+        sources = {
+          { name = "nvim_lsp" },
+          { name = "buffer" },
+          { name = "path" },
+        },
+        mapping = {
+          ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'}),
+          ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'}),
+          ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+          ["<Tab>"] = cmp.mapping(function(fallback)
+                        local luasnip = require('luasnip')
+                        if cmp.visible() then
+                          cmp.confirm({ select = true })
+                        elseif luasnip.expand_or_locally_jumpable() then
+                          luasnip.expand_or_jump()
+                        else
+                          fallback()
+                        end
+                      end, {'i', 's'}),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+                          local luasnip = require('luasnip')
+                          if luasnip.locally_jumpable(-1) then
+                            luasnip.jump(-1)
+                          else
+                            fallback()
+                          end
+                        end, {'i', 's'}),
+        }
+      })
+    end,
   },
   
   {
