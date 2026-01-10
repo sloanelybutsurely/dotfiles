@@ -1,0 +1,4 @@
+# text/plain; lowdown -tterm --term-no-links --term-columns $COLUMNS --term-width=120 | less -R
+
+# text/html; w3m -dump -T text/html %s; nametemplate=%s.html; copiousoutput
+text/html; html2text -b $COLUMNS --ignore-tables --default-image-alt ◆ --links-after-para --no-wrap-links --reference-links --unicode-snob - %{charset} | lowdown -tterm --term-no-links --term-columns $COLUMNS --term-width=120 | less -R

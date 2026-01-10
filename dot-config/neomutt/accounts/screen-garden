@@ -1,0 +1,24 @@
+# Account: screen-garden <sloane@screen.garden>
+
+set from = "sloane@screen.garden"
+set realname = "sloane"
+
+set spoolfile = "+sloane@screen.garden/INBOX"
+set record = "+sloane@screen.garden/Sent"
+set postponed = "+sloane@screen.garden/Drafts"
+set trash = "+sloane@screen.garden/Trash"
+
+set smtp_url = "smtps://sloane@screen.garden@smtp.fastmail.com:465"
+set smtp_pass = "`op item get 'sloane@screen.garden - app password' --fields password --reveal`"
+set smtp_authenticators = "plain"
+
+unmailboxes *
+mailboxes "+sloane@screen.garden/INBOX" \
+          "+sloane@screen.garden/Sent" \
+          "+sloane@screen.garden/Drafts" \
+          "+sloane@screen.garden/Archive" \
+          "+sloane@screen.garden/Trash"
+
+set signature = "~/.config/neomut/signatures/screen-garden"
+
+color status green default
