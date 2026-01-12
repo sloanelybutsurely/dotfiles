@@ -86,14 +86,7 @@ require("lazy").setup({
       { "mason-org/mason.nvim", version = "^v2.2.1", opts = {} },
       { "neovim/nvim-lspconfig", version = "^v2.5.0"}
     },
-    config = function()
-      require("mason-lspconfig").setup({})
-
-      local lspconfig = require("lspconfig")
-      for _, server in ipairs(require("mason-lspconfig").get_installed_servers()) do
-        lspconfig[server].setup({})
-      end
-    end,
+    opts = {},
   },
 
   {
