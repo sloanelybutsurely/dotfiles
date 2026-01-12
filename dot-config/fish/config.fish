@@ -5,4 +5,5 @@ if status is-interactive
 	zoxide init fish | source
 
   abbr j jj
+  abbr hex hexyl
 end
