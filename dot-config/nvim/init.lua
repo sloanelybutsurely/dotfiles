@@ -40,10 +40,10 @@ k("n", "<C-l>", "<C-w>l")
 
 -- Plugins
 require("lazy").setup({
-  { "catppuccin/nvim", version = "^v1.11.0", name = "catppuccin", priority = 1000 },
-  { "tpope/vim-abolish", version = "^v1.2" },
-  { "tpope/vim-commentary", version = "^v1.3" },
-  { "tpope/vim-repeat", version = "^v1.2" },
+  { "catppuccin/nvim", version = "^1.11.0", name = "catppuccin", priority = 1000 },
+  { "tpope/vim-abolish", version = "^1.2" },
+  { "tpope/vim-commentary", version = "^1.3" },
+  { "tpope/vim-repeat", version = "^1.2" },
 
   {
     "windwp/nvim-autopairs",
@@ -51,6 +51,7 @@ require("lazy").setup({
     event = "InsertEnter",
     config = true,
   },
+
   {
     "kylechui/nvim-surround",
     version = "^3.0.0",
@@ -60,7 +61,7 @@ require("lazy").setup({
 
   {
     "nvim-telescope/telescope.nvim",
-    version = "^v0.2.1",
+    version = "^0.2.1",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
       { "<leader><space>", "<cmd>Telescope find_files<cr>" },
@@ -81,10 +82,10 @@ require("lazy").setup({
 
   {
     "mason-org/mason-lspconfig.nvim",
-    version = "^v2.1.0",
+    version = "^2.1.0",
     dependencies = {
-      { "mason-org/mason.nvim", version = "^v2.2.1", opts = {} },
-      { "neovim/nvim-lspconfig", version = "^v2.5.0"}
+      { "mason-org/mason.nvim", version = "^2.2.1", opts = {} },
+      { "neovim/nvim-lspconfig", version = "^2.5.0"}
     },
     opts = {},
   },
@@ -98,7 +99,7 @@ require("lazy").setup({
       "hrsh7th/cmp-path",
       {
         "L3MON4D3/LuaSnip",
-        version = "^v2.4.1",
+        version = "^2.4.1",
         build = "make install_jsregexp",
       },
     },
