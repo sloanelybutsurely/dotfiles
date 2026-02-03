@@ -50,7 +50,13 @@ r = ["rebase"]
 s = ["squash"]
 n = ["new"]
 e = ["edit"]
-tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+tug = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+echo "jj tug has been renamed to jj hoist (or jj h). please use that instead"
+exit 1
+"""]
+h = ["hoist"]
+hoist = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
 catchup = ["rebase", "-b", "current", "-d", "trunk()", "--skip-emptied"]
 changed = ["diff", "--files-only"]
 init = ["git", "init"]
