@@ -72,3 +72,9 @@ set -euo pipefail
 revset=$1
 jj log --no-graph -r $revset -T 'description.replace("(wip)", "").trim()' | jj desc $revset --stdin
 """, ""]
+sync = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+jj fetch
+jj catchup
+jj push --tracked
+""", ""]
