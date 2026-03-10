@@ -28,6 +28,7 @@ paginate = "never"
 default-command = "log"
 editor = "nvim"
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
+diff-editor = ":builtin"
 
 [git]
 private-commits = "wip | nocommit | dev-only"
@@ -37,6 +38,7 @@ git_push_bookmark = '"sloane/push-" ++ change_id.short()'
 
 [revsets]
 log = "trunk() | ancestors(reachable(@ | mine(), mutable()), 2) | @"
+bookmark-advance-to = "@-"
 
 [revset-aliases]
 wip = 'description(regex:"^\\[(wip|WIP|todo|TODO)\\]|(wip|WIP|todo|TODO):?")'
@@ -56,7 +58,7 @@ echo "jj tug has been renamed to jj hoist (or jj h). please use that instead"
 exit 1
 """]
 h = ["hoist"]
-hoist = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+hoist = ["bookmark", "advance"]
 catchup = ["rebase", "-b", "current", "-d", "trunk()", "--skip-emptied"]
 changed = ["diff", "--files-only"]
 init = ["git", "init"]
