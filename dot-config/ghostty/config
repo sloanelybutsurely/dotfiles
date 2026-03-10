@@ -1,7 +1,7 @@
 theme = Catppuccin Mocha
 keybind = shift+enter=text:\x1b\r
 # font-family = VT323
-font-family = DepartureMono Nerd Font
-font-size = 18
+font-family = Monaspace Argon
+font-size = 14
 
-custom-shader = ./shaders/bettercrt.glsl
+# custom-shader = ./shaders/bettercrt.glsl
