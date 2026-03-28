@@ -7,3 +7,8 @@ if status is-interactive
   abbr j jj
   abbr hex hexyl
 end
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/sloane/.lmstudio/bin
+# End of LM Studio CLI section
+
