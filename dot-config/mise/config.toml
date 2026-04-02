@@ -1,5 +1,6 @@
 [tools]
 bun = "latest"
+claude-code = "latest"
 node = "latest"
 python = "latest"
 ruby = "latest"
