@@ -1,5 +1,9 @@
 fish_add_path -g ~/.local/bin
 
+if type mise
+  mise activate fish | source
+end
+
 if status is-interactive
 	fish_vi_key_bindings
 	zoxide init fish | source
