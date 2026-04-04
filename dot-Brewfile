@@ -30,6 +30,7 @@ if OS.mac?
   cask "docker-desktop"
   cask "cleanshot"
   cask "discord"
+  cask "claude"
   cask "fantastical"
   cask "freac"
   cask "fujitsu-scansnap-home"
