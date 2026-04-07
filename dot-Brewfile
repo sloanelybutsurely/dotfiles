@@ -18,6 +18,7 @@ brew "wget"
 brew "yt-dlp"
 brew "zellij"
 brew "zoxide"
+brew "gh"
 
 # casks
 if OS.mac?
