@@ -82,3 +82,4 @@ jj catchup
 jj push --tracked
 """, ""]
 stack = ["rebase", "--after", "trunk()", "--before", "closest_merge(@)", "--revision"]
+stage = ["stack", "closest_merge(@).. ~ empty()"]
