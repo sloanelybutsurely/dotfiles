@@ -22,6 +22,7 @@ brew "gh"
 
 # casks
 if OS.mac?
+  cask "arq"
   cask "alfred"
   cask "1password"
   cask "1password-cli"
