@@ -56,6 +56,7 @@ if OS.mac?
   cask "unnaturalscrollwheels"
   cask "vlc"
   cask "vuescan"
+  cask "zoom"
 end
 
 # fonts
