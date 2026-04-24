@@ -5,7 +5,7 @@ backend = "watchman"
 
 [user]
 name = "sloane"
-email = "git@sloanelybutsurely.com"
+email = "sloane@sloanelybutsurely.com"
 
 [signing]
 behavior = "own"
