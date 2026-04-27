@@ -143,6 +143,16 @@ require("lazy").setup({
       })
     end,
   },
+
+  {
+    "romus204/tree-sitter-manager.nvim",
+    dependencies = {},
+    config = function ()
+      require("tree-sitter-manager").setup({
+        auto_install = true,
+      })
+    end
+  },
 })
 
 vim.cmd.colorscheme "catppuccin"

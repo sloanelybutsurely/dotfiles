@@ -19,6 +19,7 @@ brew "yt-dlp"
 brew "zellij"
 brew "zoxide"
 brew "gh"
+brew "tree-sitter-cli"
 
 # casks
 if OS.mac?
