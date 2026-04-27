@@ -1,9 +1,11 @@
 [tools]
 bun = "latest"
 claude-code = "latest"
+erlang = "latest"
 node = "latest"
 python = "latest"
 ruby = "latest"
+elixir = "latest"
 
 [settings]
 experimental = true
