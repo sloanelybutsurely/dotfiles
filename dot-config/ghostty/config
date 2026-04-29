@@ -1,8 +1,3 @@
-theme = Catppuccin Mocha
-keybind = shift+enter=text:\x1b\r
-# font-family = VT323
-# font-family = Monaspace Argon
+theme = Alabaster
 font-family = Atkinson Hyperlegible Mono
-font-size = 14
-
-# custom-shader = ./shaders/bettercrt.glsl
+font-size = 18
