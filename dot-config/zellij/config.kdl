@@ -268,7 +268,7 @@ simplified_ui false
 // Choose the theme that is specified in the themes section.
 // Default: default
 // 
-theme "catppuccin-mocha"
+theme "pencil-light"
  
 // Choose the base input mode of zellij.
 // Default: normal
