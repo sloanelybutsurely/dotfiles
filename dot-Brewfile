@@ -20,6 +20,9 @@ brew "zellij"
 brew "zoxide"
 brew "gh"
 brew "tree-sitter-cli"
+brew "aerc"
+brew "w3m"
+brew "util-linux"
 
 # casks
 if OS.mac?
