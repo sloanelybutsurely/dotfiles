@@ -17,13 +17,13 @@ configurations are available below:
 installing:
 
 ```sh
-stow . -t $HOME --dotfiles
+stow . -t $HOME --dotfiles --ignore LICENSE
 ```
 
 uninstalling:
 
 ```sh
-stow . -t $HOME --dotfiles --delete
+stow . -t $HOME --dotfiles --delete --ignore LICENSE
 ```
 
 [stow]: https://www.gnu.org/software/stow/
