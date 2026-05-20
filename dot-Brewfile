@@ -62,6 +62,7 @@ if OS.mac?
   cask "vuescan"
   cask "zoom"
   cask "signal"
+  cask "calibre"
 end
 
 # fonts
