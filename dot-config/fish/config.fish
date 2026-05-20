@@ -9,3 +9,4 @@ end
 
 abbr j jj
 
+set -gx EDITOR nvim
