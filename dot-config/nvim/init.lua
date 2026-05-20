@@ -153,6 +153,13 @@ require("lazy").setup({
       })
     end
   },
+
+  {
+    "andrewferrier/wrapping.nvim",
+    config = function ()
+      require("wrapping").setup()
+    end
+  },
 })
 
 vim.cmd.colorscheme "alabaster-bg"
