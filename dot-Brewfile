@@ -63,6 +63,7 @@ if OS.mac?
   cask "zoom"
   cask "signal"
   cask "calibre"
+  cask "utm"
 end
 
 # fonts
