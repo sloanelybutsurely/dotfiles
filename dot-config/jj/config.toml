@@ -33,8 +33,18 @@ diff-editor = ":builtin"
 [git]
 private-commits = "wip | nocommit | dev-only"
 
+# https://ddbeck.com/notes/jj-git-push-bookmark-template/
+[template-aliases]
+"slugify(str)" = '''
+  str.replace(regex:'[^[[:alnum:]].]', '-')
+     .replace(regex:'-{2,}', '-')
+     .replace(regex:'\.{2,}', '.')
+     .replace(regex:'(^-+|-+$)', '')
+     .lower()
+'''
+
 [templates]
-git_push_bookmark = '"sloane/push-" ++ change_id.short()'
+git_push_bookmark = '"sloane/" ++ truncate_end(65, slugify(description.first_line()))'
 
 [revsets]
 log = "trunk() | ancestors(reachable(@ | mine(), mutable()), 2) | @"
