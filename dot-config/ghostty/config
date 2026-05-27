@@ -1,3 +1,7 @@
-theme = Alabaster
-font-family = Atkinson Hyperlegible Mono
-font-size = 18
+# theme = Alabaster
+# font-family = Atkinson Hyperlegible Mono
+# font-size = 18
+
+theme = Catppuccin Mocha
+font-family = Monaspace Argon
+font-size = 14
