@@ -1,11 +1,9 @@
 [tools]
+erlang = "28"
+node = "lts"
+elixir = "1.19"
+pnpm = "latest"
 bun = "latest"
-claude-code = "latest"
-erlang = "latest"
-node = "latest"
-python = "latest"
-ruby = "latest"
-elixir = "latest"
 
 [settings]
 experimental = true
