@@ -40,7 +40,8 @@ k("n", "<C-l>", "<C-w>l")
 
 -- Plugins
 require("lazy").setup({
-  { "sderev/alabaster.vim", version = "^1.0" },
+  -- { "sderev/alabaster.vim", version = "^1.0" },
+  { "catppuccin/nvim", version = "^1.11.0", name = "catppuccin", priority = 1000 },
   { "tpope/vim-abolish", version = "^1.2" },
   { "tpope/vim-commentary", version = "^1.3" },
   { "tpope/vim-repeat", version = "^1.2" },
@@ -181,4 +182,5 @@ require("lazy").setup({
   },
 })
 
-vim.cmd.colorscheme "alabaster-bg"
+-- vim.cmd.colorscheme "alabaster-bg"
+vim.cmd.colorscheme "catppuccin"
