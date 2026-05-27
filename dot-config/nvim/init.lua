@@ -1,186 +1,37 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git", "clone", "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
--- Leader key
-vim.g.mapleader = " "
-
--- Settings
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
+
+local tabsize = 2
+vim.opt.shiftwidth = tabsize
+vim.opt.tabstop = tabsize
 vim.opt.expandtab = true
 
--- Keybindings
-local k = vim.keymap.set
-k({ "n", "v" }, ";", ":")
-k({ "n", "v" }, "q;", "q:")
-k({ "n", "v" }, "<leader>y", '"+y')
-k({ "n", "v" }, "<leader>Y", '"+Y')
-k({ "n", "v" }, "<leader>p", '"+p')
-k({ "n", "v" }, "<leader>P", '"+P')
-k("n", "<leader>w", "<cmd>w<cr>")
-k("n", "<leader>q", "<cmd>q<cr>")
-k("n", "<esc>", "<cmd>nohlsearch<cr>")
-k("n", '<leader>"', "<cmd>split<cr>")
-k("n", "<leader>%", "<cmd>vsplit<cr>")
-k("n", "<C-h>", "<C-w>h")
-k("n", "<C-j>", "<C-w>j")
-k("n", "<C-k>", "<C-w>k")
-k("n", "<C-l>", "<C-w>l")
 
--- Plugins
-require("lazy").setup({
-  -- { "sderev/alabaster.vim", version = "^1.0" },
-  { "catppuccin/nvim", version = "^1.11.0", name = "catppuccin", priority = 1000 },
-  { "tpope/vim-abolish", version = "^1.2" },
-  { "tpope/vim-commentary", version = "^1.3" },
-  { "tpope/vim-repeat", version = "^1.2" },
+vim.g.mapleader = " "
 
-  {
-    "windwp/nvim-autopairs",
-    commit = "c2a0dd0",
-    event = "InsertEnter",
-    config = true,
-  },
+-- de-shift ":" in normal mode
+vim.keymap.set('n', ';', ':')
+vim.keymap.set('n', 'q;', 'q:')
 
-  {
-    "kylechui/nvim-surround",
-    version = "^3.0.0",
-    event = "VeryLazy",
-    opts = {},
-  },
+vim.keymap.set('n', '<esc>', '<cmd>nohlsearch<cr>')
 
-  {
-    "nvim-telescope/telescope.nvim",
-    version = "^0.2.1",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    keys = {
-      { "<leader><space>", "<cmd>Telescope find_files<cr>" },
-      { "<leader>/", "<cmd>Telescope live_grep<cr>" },
-    },
-  },
-  
-  {
-    "nvim-tree/nvim-tree.lua",
-    version = "^1.14.0",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
-    keys = {
-      { "<leader><tab>", "<cmd>NvimTreeToggle<cr>" },
-      { "<leader>fl", "<cmd>NvimTreeFindFile<cr>" },
-    },
-  },
+-- move between panes witkout <c-w>
+vim.keymap.set('n', '<c-h>', '<c-w>h')
+vim.keymap.set('n', '<c-j>', '<c-w>j')
+vim.keymap.set('n', '<c-k>', '<c-w>k')
+vim.keymap.set('n', '<c-l>', '<c-w>l')
 
-  {
-    "mason-org/mason-lspconfig.nvim",
-    version = "^2.1.0",
-    dependencies = {
-      { "mason-org/mason.nvim", version = "^2.2.1", opts = {} },
-      { "neovim/nvim-lspconfig", version = "^2.5.0"}
-    },
-    opts = {},
-  },
+-- quickly save and quit
+vim.keymap.set('n', '<leader>w', '<cmd>w<cr>')
+vim.keymap.set('n', '<leader>q', '<cmd>q<cr>')
 
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      {
-        "L3MON4D3/LuaSnip",
-        version = "^2.4.1",
-        build = "make install_jsregexp",
-      },
-    },
-    config = function()
-      local cmp = require("cmp")
+-- quickly open splits
+vim.keymap.set('n', '<leader>"', '<cmd>split<cr>')
+vim.keymap.set('n', '<leader>%', '<cmd>vsplit<cr>')
 
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-          end
-        },
-        sources = {
-          { name = "nvim_lsp" },
-          { name = "buffer" },
-          { name = "path" },
-        },
-        mapping = {
-          ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'}),
-          ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'}),
-          ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-          ["<Tab>"] = cmp.mapping(function(fallback)
-                        local luasnip = require('luasnip')
-                        if cmp.visible() then
-                          cmp.confirm({ select = true })
-                        elseif luasnip.expand_or_locally_jumpable() then
-                          luasnip.expand_or_jump()
-                        else
-                          fallback()
-                        end
-                      end, {'i', 's'}),
-          ["<S-Tab>"] = cmp.mapping(function(fallback)
-                          local luasnip = require('luasnip')
-                          if luasnip.locally_jumpable(-1) then
-                            luasnip.jump(-1)
-                          else
-                            fallback()
-                          end
-                        end, {'i', 's'}),
-        }
-      })
-    end,
-  },
-
-  {
-    "romus204/tree-sitter-manager.nvim",
-    dependencies = {},
-    config = function ()
-      require("tree-sitter-manager").setup({
-        auto_install = true,
-      })
-    end
-  },
-
-  {
-    "andrewferrier/wrapping.nvim",
-    config = function ()
-      require("wrapping").setup()
-    end
-  },
-
-  {
-    "stevearc/conform.nvim",
-    config = function ()
-      require("conform").setup({
-        formatters_by_ft = {
-          elixir = { "mix" },
-          javascript = { "prettier" },
-          typescript = { "prettier" },
-          markdown = { "prettier" },
-          json = { "prettier" },
-          css = { "prettier" },
-        },
-        format_on_save = {
-          lsp_format = "fallback"
-        },
-      })
-    end
-  },
+vim.pack.add({
+  { src = 'https://github.com/nvim-mini/mini.nvim', version = 'stable' }
 })
 
--- vim.cmd.colorscheme "alabaster-bg"
-vim.cmd.colorscheme "catppuccin"
+-- lsp
+vim.lsp.enable({ 'lua_ls' })
