@@ -10,7 +10,7 @@ email = "sloane@sloanelybutsurely.com"
 [signing]
 behavior = "own"
 backend = "ssh"
-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID0TH2GezEx8+zlKBqUb7rBsbmghnd1u4nX6YpQr28Zw"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILToeB7dAYxTbD8qJtY3/pwqbRy/AHpbPqX69Go9hRx0"
 
 
 [[--scope]]
