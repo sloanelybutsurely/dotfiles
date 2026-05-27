@@ -1,5 +1,6 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.winborder = 'rounded'
 
 local tabsize = 2
 vim.opt.shiftwidth = tabsize
@@ -35,3 +36,13 @@ vim.pack.add({
 
 -- lsp
 vim.lsp.enable({ 'lua_ls' })
+vim.keymap.set('n', 'gD', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gR', vim.lsp.buf.references)
+
+require('mini.comment').setup({})
+require('mini.pairs').setup({})
+require('mini.operators').setup({})
+require('mini.surround').setup({
+  -- match tpope/vim-surround
+  mappings = { add = 'ys', delete = 'ds', replace = 'cs', }
+})
