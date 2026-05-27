@@ -11,8 +11,8 @@ vim.opt.expandtab = true
 vim.g.mapleader = " "
 
 -- de-shift ":" in normal mode
-vim.keymap.set('n', ';', ':')
-vim.keymap.set('n', 'q;', 'q:')
+vim.keymap.set({ 'n', 'v' }, ';', ':')
+vim.keymap.set({ 'n', 'v' }, 'q;', 'q:')
 
 vim.keymap.set('n', '<esc>', '<cmd>nohlsearch<cr>')
 
@@ -29,6 +29,12 @@ vim.keymap.set('n', '<leader>q', '<cmd>q<cr>')
 -- quickly open splits
 vim.keymap.set('n', '<leader>"', '<cmd>split<cr>')
 vim.keymap.set('n', '<leader>%', '<cmd>vsplit<cr>')
+
+-- system clipboard yank and paste
+vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y')
+vim.keymap.set({ 'n', 'v', 'x' }, '<leader>Y', '"+Y')
+vim.keymap.set({ 'n', 'v', 'x' }, '<leader>p', '"+p')
+vim.keymap.set({ 'n', 'v', 'x' }, '<leader>P', '"+P')
 
 vim.pack.add({
   { src = 'https://github.com/nvim-mini/mini.nvim', version = 'stable' }
