@@ -5,6 +5,7 @@ elixir = "1.19"
 pnpm = "latest"
 bun = "latest"
 "aqua:LuaLS/lua-language-server" = "latest"
+expert = "latest"
 
 [settings]
 experimental = true

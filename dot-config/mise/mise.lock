@@ -104,6 +104,54 @@ backend = "core:elixir"
 version = "28.5"
 backend = "core:erlang"
 
+[[tools.expert]]
+version = "0.1.4"
+backend = "aqua:expert-lsp/expert"
+
+[tools.expert."platforms.linux-arm64"]
+checksum = "sha256:128f0eb2b477892fe1cc0567e996f8674ef2d36809541952a2bf1375c9d178c4"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_linux_arm64"
+
+[tools.expert."platforms.linux-arm64-musl"]
+checksum = "sha256:128f0eb2b477892fe1cc0567e996f8674ef2d36809541952a2bf1375c9d178c4"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_linux_arm64"
+
+[tools.expert."platforms.linux-x64"]
+checksum = "sha256:3c80e8b4b1428d6e87fba29056fd6ac7c52ea9edc2344f2c4388a318d131d361"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_linux_amd64"
+
+[tools.expert."platforms.linux-x64-baseline"]
+checksum = "sha256:3c80e8b4b1428d6e87fba29056fd6ac7c52ea9edc2344f2c4388a318d131d361"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_linux_amd64"
+
+[tools.expert."platforms.linux-x64-musl"]
+checksum = "sha256:3c80e8b4b1428d6e87fba29056fd6ac7c52ea9edc2344f2c4388a318d131d361"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_linux_amd64"
+
+[tools.expert."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:3c80e8b4b1428d6e87fba29056fd6ac7c52ea9edc2344f2c4388a318d131d361"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_linux_amd64"
+
+[tools.expert."platforms.macos-arm64"]
+checksum = "sha256:3bfeb1a4bffab72b88a469883981a521816a60e77a8b802b187607ffe6c5c72b"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_darwin_arm64"
+
+[tools.expert."platforms.macos-x64"]
+checksum = "sha256:e14016736d30e63544282c4e416112adbc3cb52f3ff28f7ee96e764043d38f8b"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_darwin_amd64"
+
+[tools.expert."platforms.macos-x64-baseline"]
+checksum = "sha256:e14016736d30e63544282c4e416112adbc3cb52f3ff28f7ee96e764043d38f8b"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_darwin_amd64"
+
+[tools.expert."platforms.windows-x64"]
+checksum = "sha256:ff2df4edd5e86eb245115a7b37822d8296eb44ae3cfc6ae50efea8297a835cc6"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_windows_amd64.exe"
+
+[tools.expert."platforms.windows-x64-baseline"]
+checksum = "sha256:ff2df4edd5e86eb245115a7b37822d8296eb44ae3cfc6ae50efea8297a835cc6"
+url = "https://github.com/expert-lsp/expert/releases/download/v0.1.4/expert_windows_amd64.exe"
+
 [[tools.node]]
 version = "24.14.1"
 backend = "core:node"
