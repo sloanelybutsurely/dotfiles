@@ -6,6 +6,7 @@ pnpm = "latest"
 bun = "latest"
 "aqua:LuaLS/lua-language-server" = "latest"
 expert = "latest"
+tree-sitter = "latest"
 
 [settings]
 experimental = true
