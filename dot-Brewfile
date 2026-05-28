@@ -33,6 +33,7 @@ if OS.mac?
   cask "1password-cli"
   cask "firefox"
   cask "ghostty"
+  cask "alacritty"
   cask "dash"
   cask "docker-desktop"
   cask "cleanshot"

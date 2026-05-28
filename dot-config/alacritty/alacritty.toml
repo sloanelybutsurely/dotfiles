@@ -1,0 +1,9 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "MonoLisa", style = "Book" }
+size = 14.0
+
+[general]
+import = ["./catppuccin-mocha.toml"]
