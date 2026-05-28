@@ -1,9 +1,9 @@
 vim.pack.add({
-  { src = 'https://github.com/nvim-mini/mini.nvim', version = 'stable' },
-  { src = 'https://github.com/catppuccin/vim', name = 'catppuccin' },
+  { src = 'https://github.com/nvim-mini/mini.nvim',           version = 'stable' },
+  { src = 'https://github.com/catppuccin/vim',                name = 'catppuccin' },
 
   -- TODO: consider replacing this with `mini.files`
-  { src = 'https://github.com/nvim-tree/nvim-tree.lua', version = 'v1.17' },
+  { src = 'https://github.com/nvim-tree/nvim-tree.lua',       version = 'v1.17' },
 
   -- TODO: consider replacing with `mini.pick`. plenary is slated for archival
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
@@ -15,6 +15,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.winborder = 'rounded'
 vim.opt.termguicolors = true
+vim.opt.signcolumn = 'yes'
 
 local tabsize = 2
 vim.opt.shiftwidth = tabsize
@@ -24,6 +25,28 @@ vim.opt.expandtab = true
 
 -- lsp
 vim.lsp.enable({ 'lua_ls', 'expert', 'ts_ls' })
+local lsp_group = vim.api.nvim_create_augroup('sloane.lsp', {})
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = lsp_group,
+  callback = function(ev)
+    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+
+    -- if client:supports_method('textDocument/completion') then
+    --   vim.lsp.completion.enable(true, client.id, ev.buf)
+    -- end
+
+    if not client:supports_method('textDocument/willSaveWaitUntil')
+        and client:supports_method('textDocument/formatting') then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = lsp_group,
+        buffer = ev.buf,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })
+        end,
+      })
+    end
+  end,
+})
 vim.keymap.set('n', 'gD', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gR', vim.lsp.buf.references)
 
@@ -33,6 +56,12 @@ require('mini.operators').setup({})
 require('mini.surround').setup({
   -- match tpope/vim-surround
   mappings = { add = 'ys', delete = 'ds', replace = 'cs', }
+})
+-- require('mini.snippets').setup({})
+require('mini.completion').setup({
+  lsp_completion = {
+    source_func = 'omnifunc',
+  },
 })
 
 vim.g.loaded_netrw = 1
@@ -89,7 +118,7 @@ vim.keymap.set('n', '<leader>%', '<cmd>vsplit<cr>')
 
 -- nvim-tree
 vim.keymap.set('n', '<leader><tab>', require('nvim-tree.api').tree.toggle)
-vim.keymap.set('n', '<leader>fl', function ()
+vim.keymap.set('n', '<leader>fl', function()
   require('nvim-tree.api').tree.find_file({ open = true })
 end)
 
