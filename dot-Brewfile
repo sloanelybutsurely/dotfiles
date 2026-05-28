@@ -23,6 +23,7 @@ brew "tree-sitter-cli"
 brew "aerc"
 brew "w3m"
 brew "util-linux"
+brew "fd"
 
 # casks
 if OS.mac?
