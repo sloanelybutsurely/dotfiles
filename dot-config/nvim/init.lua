@@ -23,7 +23,7 @@ vim.opt.expandtab = true
 
 
 -- lsp
-vim.lsp.enable({ 'lua_ls', 'expert' })
+vim.lsp.enable({ 'lua_ls', 'expert', 'ts_ls' })
 vim.keymap.set('n', 'gD', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gR', vim.lsp.buf.references)
 
