@@ -1,0 +1,8 @@
+Goals:
+
+- [ ] shared home-manager settings
+- [ ] NixOS configurations
+  - [ ] nixos-desktop
+  - [ ] nixos-thinkpad
+- [ ] nix-darwin configuration(s)
+  - [ ] macbook-air
