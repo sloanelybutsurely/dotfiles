@@ -6,3 +6,7 @@ Goals:
   - [ ] nixos-thinkpad
 - [ ] nix-darwin configuration(s)
   - [ ] macbook-air
+
+20260605:
+
+- copied over existing nixos-desktop configuration
