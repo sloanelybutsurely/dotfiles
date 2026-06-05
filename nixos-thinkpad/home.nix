@@ -8,8 +8,6 @@ in
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
-    _1password-cli
-    _1password-gui
     fish
     ripgrep
     fd
@@ -19,6 +17,7 @@ in
     discord
     difftastic
     weechat
+    newsboat
   ];
 
   ## Linked config files/directories:
@@ -26,6 +25,7 @@ in
   xdg.configFile."fish/config.fish".source = link "${config-files}/fish/config.fish";
   xdg.configFile."jj/config.toml".source = link "${config-files}/jj/config.toml";
   xdg.configFile."foot/foot.ini".source = link "${config-files}/foot/foot.ini";
+  xdg.configFile."newsboat/config".source = link "${config-files}/newsboat/config";
 
   # directories
   xdg.configFile."nvim" = {

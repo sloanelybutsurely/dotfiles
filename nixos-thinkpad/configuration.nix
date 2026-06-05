@@ -24,6 +24,10 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # console.font = "ter-v32n";
+
+  security.polkit.enable = true;
+
   services.thermald.enable = true;
   services.tlp.enable = true;
   services.displayManager.ly.enable = true;
@@ -52,12 +56,32 @@
 
   programs.sway.enable = true;
   programs.fish.enable = true;
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "sloane" ];
+  };
 
   environment.systemPackages = with pkgs; [
+    polkit_gnome
     neovim
     wget
     git
   ];
+
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  }; 
 
   # List services that you want to enable:
 
