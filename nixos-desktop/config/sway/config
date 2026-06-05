@@ -27,9 +27,6 @@ output DP-1 mode 3840x2160@143.999Hz
 
 font MonoLisa 12
 
-gaps inner 4
-gaps outer 2
-
 #
 # Example configuration:
 #
