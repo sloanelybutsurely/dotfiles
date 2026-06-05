@@ -26,6 +26,8 @@ set $menu rofi -show combi -combi-modes "window,drun,run"
 # output DP-1 mode 3840x2160@143.999Hz
 output eDP-1 mode 1920x1080@60Hz
 
+font MonoLisa 12
+
 #
 # Example configuration:
 #
