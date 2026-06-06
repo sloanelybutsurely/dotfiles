@@ -33,4 +33,8 @@ in
     source = link "${config-files}/nvim";
     recursive = true;
   };
+  xdg.configFile."aerc" = {
+    source = link "${config-files}/aerc";
+    recursive = true;
+  };
 }

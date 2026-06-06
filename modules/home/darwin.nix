@@ -11,4 +11,10 @@ in
 
   xdg.configFile."nixpkgs/config.nix".text = "{ allowUnfree = true; }";
   xdg.configFile."alacritty/alacritty.toml".source = link "${config-files}/alacritty/alacritty.toml";
+
+  # aerc wants config in Library
+  home.file."Library/Preferences/aerc" = {
+    source = link "${config.home.homeDirectory}/.config/aerc";
+    recursive = true;
+  };
 }
