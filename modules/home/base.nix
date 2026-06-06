@@ -17,6 +17,7 @@ in
     zellij
     aerc
     jujutsu
+    ffmpeg
   ];
 
   home.sessionVariables = {
