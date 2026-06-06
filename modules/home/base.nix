@@ -19,6 +19,11 @@ in
     jujutsu
   ];
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    MANPAGER = "nvim +Man!";
+  };
+
   programs.fish = {
     enable = true;
     shellAbbrs = {
