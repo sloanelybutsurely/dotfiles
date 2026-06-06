@@ -39,6 +39,16 @@ in
     '';
   };
   programs.zoxide.enable = true;
+  programs.mise = {
+    enable = true;
+    enableFishIntegration = true;
+    globalConfig = {
+      settings = {
+        experimental = true;
+      };
+    };
+  };
+
   programs.newsboat = {
     enable = true;
     extraConfig = ''
