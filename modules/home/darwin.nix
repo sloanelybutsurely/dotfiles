@@ -3,6 +3,8 @@
   config-files = "${config.home.homeDirectory}/.config/nix-config/config";
 in
 {
+  home.homeDirectory = "/Users/sloane";
+
   programs.fish = {
     functions = {
       rebuild-system = "sudo darwin-rebuild switch --flake ~/.config/nix-config#(hostname)";

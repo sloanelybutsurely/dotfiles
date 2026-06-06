@@ -27,8 +27,8 @@ in
   };
   programs.zoxide.enable = true;
 
-  xdg.configFile."newsboat/config".source =
-    link "${config-files}/newsboat/config";
+  xdg.configFile."jj/config.toml".source = link "${config-files}/jj/config.toml";
+  xdg.configFile."newsboat/config".source = link "${config-files}/newsboat/config";
   xdg.configFile."nvim" = {
     source = link "${config-files}/nvim";
     recursive = true;
