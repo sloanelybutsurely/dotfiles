@@ -18,6 +18,7 @@ in
     aerc
     jujutsu
     ffmpeg
+    htop
   ];
 
   home.sessionVariables = {
