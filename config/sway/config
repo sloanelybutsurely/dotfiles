@@ -1,38 +1,16 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
-#
-# Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
+
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+
 set $term foot
-# Your preferred application launcher
 set $menu rofi -show combi -combi-modes "window,drun,run"
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-# output * bg ~/media/images/wallpapers/os-x-tiger-wallpaper.jpg fill
-# output * scale 1.5
-# output DP-1 mode 3840x2160@143.999Hz
-
-font MonoLisa 12
-
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+# https://512pixels.net/projects/mac-os-9-5k-wallpapers/
+output * bg ~/.config/sway/wallpaper/macos-9-blue-dalmation.jpg fill
 
 ### Startup Applications
 ## 1Password

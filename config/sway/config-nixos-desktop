@@ -1,3 +1,4 @@
-output * bg ~/media/images/wallpapers/os-x-tiger-wallpaper.jpg fill
 output * scale 1.5
-output DP-1 mode 3840x2160@143.999Hz
+output DP-1 mode 3840x2160@144Hz
+
+font MonoLisa 10
