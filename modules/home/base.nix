@@ -64,4 +64,8 @@ in
     source = link "${config-files}/aerc";
     recursive = true;
   };
+  xdg.configFile."qutebrowser" = {
+    source = link "${config-files}/qutebrowser";
+    recursive = true;
+  };
 }
