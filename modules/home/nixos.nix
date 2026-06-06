@@ -15,7 +15,7 @@ in
       rebuild-system = "sudo nixos-rebuild switch --flake ~/.config/nix-config#(hostname)";
     };
   };
-  programs.newsboat.browser = ''"${pkgs.qutebrowser} %u"'';
+  programs.newsboat.browser = ''"exec qutebrowser %u > /dev/null 2>&1 &"'';
 
   xdg.configFile."sway" = {
     source = link "${config-files}/sway";
