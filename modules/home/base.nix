@@ -16,7 +16,6 @@ in
     wget
     zellij
     aerc
-    newsboat
     jujutsu
   ];
 
@@ -35,9 +34,28 @@ in
     '';
   };
   programs.zoxide.enable = true;
+  programs.newsboat = {
+    enable = true;
+    extraConfig = ''
+      refresh-on-startup yes
+
+      # miniflux
+      urls-source "miniflux"
+      miniflux-url "https://miniflux.sloanelybutsurely.com"
+      miniflux-login "sloane"
+      miniflux-passwordeval "op read op://Private/miniflux/password"
+
+      # podcasts
+      # podcast-auto-enqueue yes
+      download-path "~/media/podcasts/%n"
+      download-filename-format "%F - %t.%e"
+      delete-played-files yes
+      max-downloads 6
+      podlist-format "%4i %-70b [%6p %%] %S"
+    '';
+  };
 
   xdg.configFile."jj/config.toml".source = link "${config-files}/jj/config.toml";
-  xdg.configFile."newsboat/config".source = link "${config-files}/newsboat/config";
   xdg.configFile."nvim" = {
     source = link "${config-files}/nvim";
     recursive = true;

@@ -11,6 +11,7 @@ in
       rebuild-system = "sudo darwin-rebuild switch --flake ~/.config/nix-config#(hostname)";
     };
   };
+  programs.newsboat.browser = ''"open %u"'';
 
   xdg.configFile."nixpkgs/config.nix".text = "{ allowUnfree = true; }";
   xdg.configFile."alacritty/alacritty.toml".source = link "${config-files}/alacritty/alacritty.toml";
