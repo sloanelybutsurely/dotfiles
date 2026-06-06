@@ -41,6 +41,8 @@
 
   services.gnome.gnome-keyring.enable = true;
 
+  services.tailscale.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
