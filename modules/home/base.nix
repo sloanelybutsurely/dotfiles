@@ -29,6 +29,9 @@ in
     shellAbbrs = {
       j = "jj";
     };
+    interactiveShellInit = ''
+      fish_vi_key_bindings
+    '';
   };
   programs.zoxide.enable = true;
 

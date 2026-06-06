@@ -34,7 +34,7 @@
       ];
     };
 
-		nixosConfigurations.nixos-thinkpad = nixpkgs.lib.nixosSystem {
+		nixosConfigurations."nixos-thinkpad" = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
         ./modules/nixos/base.nix
@@ -56,5 +56,28 @@
 				}
 			];
 		};
+
+    nixosConfigurations."nixos-desktop" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./modules/nixos/base.nix
+        { imports = [
+          ./modules/nixos/hosts/nixos-desktop/hardware-configuration.nix
+          ./modules/nixos/hosts/nixos-desktop/network.nix
+        ]; }
+				home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+						useGlobalPkgs = true;
+						useUserPackages = true;
+						backupFileExtension = "before-home-manager";
+						users.sloane = { imports = [
+              ./modules/home/base.nix
+              ./modules/home/nixos.nix
+            ]; };
+          };
+        }
+      ];
+    };
   };
 }

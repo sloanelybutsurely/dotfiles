@@ -24,7 +24,6 @@ set $menu rofi -show combi -combi-modes "window,drun,run"
 # output * bg ~/media/images/wallpapers/os-x-tiger-wallpaper.jpg fill
 # output * scale 1.5
 # output DP-1 mode 3840x2160@143.999Hz
-output eDP-1 mode 1920x1080@60Hz
 
 font MonoLisa 12
 
@@ -234,7 +233,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while ~/.config/sway/status.sh; do sleep 5; done
+    status_command while ~/.config/sway/status-$(hostname).sh; do sleep 5; done
 
     colors {
         statusline #ffffff
@@ -243,4 +242,5 @@ bar {
     }
 }
 
+include "~/.config/sway/config-$(hostname)"
 include /etc/sway/config.d/*
