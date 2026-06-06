@@ -20,6 +20,7 @@ in
     ffmpeg
     htop
     rmpc
+    tree
   ];
 
   home.sessionVariables = {
