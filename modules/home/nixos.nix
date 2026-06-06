@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, ... }:
+let
   link = config.lib.file.mkOutOfStoreSymlink;
   config-files = "${config.home.homeDirectory}/.config/nix-config/config";
 in
@@ -24,8 +25,8 @@ in
   programs.ssh = {
     enable = true;
     extraConfig = ''
-    Host *
-      IdentityAgent ${config.home.homeDirectory}/.1password/agent.sock
+      Host *
+        IdentityAgent ${config.home.homeDirectory}/.1password/agent.sock
     '';
   };
   programs.firefox.enable = true;

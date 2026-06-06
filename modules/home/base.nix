@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, ... }:
+let
   link = config.lib.file.mkOutOfStoreSymlink;
   config-files = "${config.home.homeDirectory}/.config/nix-config/config";
 in
