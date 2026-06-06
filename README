@@ -1,12 +1,19 @@
 Goals:
 
-- [ ] shared home-manager settings
-- [ ] NixOS configurations
-  - [ ] nixos-desktop
-  - [ ] nixos-thinkpad
-- [ ] nix-darwin configuration(s)
-  - [ ] macbook-air
+- [x] shared home-manager settings
+- [x] NixOS configurations
+  - [x] nixos-desktop
+  - [x] nixos-thinkpad
+- [x] nix-darwin configuration(s)
+  - [x] macbook-air
+- [ ] Configuration across machines de-duplicated 
+- [ ] Feature based blocks for configuration (shared across nixos & nix-darwin
+  machines)
 
-20260605:
+Approach:
 
-- copied over existing nixos-desktop configuration
+1. Start with separate configurations in subdirectories
+2. Move separate configurations into single, top-level flake using explicit
+   module `import`s
+3. (?) Move to flake-parts / import-tree approach where features / settings are
+   defined in feature modules and automatically imported
