@@ -28,7 +28,12 @@ in
     MANPAGER = "nvim +Man!";
   };
 
-  services.mpd.enable = true;
+  services.mpd = {
+    enable = true;
+    extraConfig = ''
+      auto_update "yes"
+    '';
+  };
 
   programs.fish = {
     enable = true;
@@ -85,4 +90,5 @@ in
     source = link "${config-files}/qutebrowser";
     recursive = true;
   };
+  xdg.configFile."mpd/mpd.conf".text = config.services.mpd.generatedConfig;
 }
