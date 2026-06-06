@@ -21,4 +21,6 @@ in
     source = link "${config.home.homeDirectory}/.config/aerc";
     recursive = true;
   };
+
+  services.mpd.musicDirectory = "${config.home.homeDirectory}/Music/iPod/Music";
 }

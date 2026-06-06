@@ -32,4 +32,6 @@ in
   };
   programs.firefox.enable = true;
   programs.rofi.enable = true;
+
+  services.mpd.musicDirectory = "${config.home.homeDirectory}/media/music";
 }

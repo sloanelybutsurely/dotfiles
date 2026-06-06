@@ -27,10 +27,7 @@ in
     MANPAGER = "nvim +Man!";
   };
 
-  services.mpd = {
-    enable = true;
-    musicDirectory = "${config.home.homeDirectory}/media/music/flac";
-  };
+  services.mpd.enable = true;
 
   programs.fish = {
     enable = true;
