@@ -1,4 +1,4 @@
-Goals:
+## Goals:
 
 - [x] shared home-manager settings
 - [x] NixOS configurations
@@ -10,7 +10,7 @@ Goals:
 - [ ] Feature based blocks for configuration (shared across nixos & nix-darwin
   machines)
 
-Approach:
+## Approach:
 
 1. Start with separate configurations in subdirectories
 2. Move separate configurations into single, top-level flake using explicit
@@ -18,11 +18,11 @@ Approach:
 3. (?) Move to flake-parts / import-tree approach where features / settings are
    defined in feature modules and automatically imported
 
-Setup:
+## Setup:
 
 1. Clone repo
 2. Create symlink from `~/.config/nix-config` to wherever you cloned the repo
 3. Run first activation:
-  - nix-darwin: `sudo nix run nix-darwin/nix-darwin-26.05#darwin-rebuild -- switch --flake ~/.config/nix-config#<hostname>``
+  - nix-darwin: `sudo nix run nix-darwin/nix-darwin-26.05#darwin-rebuild -- switch --flake ~/.config/nix-config#<hostname>`
   - nixos: `sudo nixos-rebuild switch --flake ~/.config/nix-config#<hostname>`
 4. Make changes and update: `rebuild-system`
