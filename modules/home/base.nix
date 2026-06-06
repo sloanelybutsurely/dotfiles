@@ -19,11 +19,17 @@ in
     jujutsu
     ffmpeg
     htop
+    rmpc
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
     MANPAGER = "nvim +Man!";
+  };
+
+  services.mpd = {
+    enable = true;
+    musicDirectory = "${config.home.homeDirectory}/media/music/flac";
   };
 
   programs.fish = {
