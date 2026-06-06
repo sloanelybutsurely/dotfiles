@@ -72,6 +72,7 @@ in
   };
 
   xdg.configFile."jj/config.toml".source = link "${config-files}/jj/config.toml";
+  xdg.configFile."rmpc/config.ron".source = link "${config-files}/rmpc/config.ron";
   xdg.configFile."nvim" = {
     source = link "${config-files}/nvim";
     recursive = true;
