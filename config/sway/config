@@ -12,6 +12,8 @@ set $menu rofi -show combi -combi-modes "window,drun,run"
 # https://512pixels.net/projects/mac-os-9-5k-wallpapers/
 output * bg ~/.config/sway/wallpaper/macos-9-blue-dalmation.jpg fill
 
+font MonoLisa 10
+
 ### Startup Applications
 ## 1Password
 exec 1password --silent
