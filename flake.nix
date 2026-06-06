@@ -38,7 +38,10 @@
 			system = "x86_64-linux";
 			modules = [
         ./modules/nixos/base.nix
-        { imports = [ ./modules/nixos/hosts/nixos-thinkpad/hardware-configuration.nix ]; }
+        { imports = [
+          ./modules/nixos/hosts/nixos-thinkpad/hardware-configuration.nix
+          ./modules/nixos/hosts/nixos-thinkpad/network.nix
+        ]; }
 				home-manager.nixosModules.home-manager
 				{
 					home-manager = {
