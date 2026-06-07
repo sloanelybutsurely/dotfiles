@@ -21,6 +21,7 @@ in
     htop
     rmpc
     tree
+    cyanrip
   ];
 
   home.sessionVariables = {
