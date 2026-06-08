@@ -30,7 +30,7 @@
       "1password"
       "1password-cli"
       "firefox"
-      "alacritty"
+      "kitty"
       "dash"
       "cleanshot"
       "discord"

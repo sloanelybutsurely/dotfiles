@@ -14,7 +14,7 @@ in
   programs.newsboat.browser = ''"open %u"'';
 
   xdg.configFile."nixpkgs/config.nix".text = "{ allowUnfree = true; }";
-  xdg.configFile."alacritty/alacritty.toml".source = link "${config-files}/alacritty/alacritty.toml";
+  xdg.configFile."kitty/kitty.conf".source = link "${config-files}/kitty/kitty.conf";
 
   # aerc wants config in Library
   home.file."Library/Preferences/aerc" = {
