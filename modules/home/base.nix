@@ -55,6 +55,11 @@ in
       };
     };
   };
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   programs.newsboat = {
     enable = true;
