@@ -24,7 +24,6 @@ in
         height = 30;
         modules-left =  [ "sway/workspaces" "sway/mode" ];
         modules-center = [ ];
-        modules-right = [ "mpd" "cpu" "memory" "clock" "tray" ];
 
         "clock".format = "{:%a %b %e, %y %I:%M %p}";
         "cpu".format = "CPU {usage}%";

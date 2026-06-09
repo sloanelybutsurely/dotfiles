@@ -65,6 +65,7 @@
                 imports = [
                   ./modules/home/base.nix
                   ./modules/home/nixos.nix
+                  ./modules/home/hosts/nixos-thinkpad.nix
                 ];
               };
             };
@@ -92,6 +93,7 @@
                 imports = [
                   ./modules/home/base.nix
                   ./modules/home/nixos.nix
+                  ./modules/home/hosts/nixos-desktop.nix
                 ];
               };
             };
