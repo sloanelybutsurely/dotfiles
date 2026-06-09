@@ -23,6 +23,7 @@ in
     tree
     cyanrip
     customWeechat
+    mpv
   ];
 
   home.sessionVariables = {
