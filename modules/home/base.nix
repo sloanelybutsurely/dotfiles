@@ -22,6 +22,7 @@ in
     rmpc
     tree
     cyanrip
+    customWeechat
   ];
 
   home.sessionVariables = {
@@ -94,6 +95,10 @@ in
   };
   xdg.configFile."qutebrowser" = {
     source = link "${config-files}/qutebrowser";
+    recursive = true;
+  };
+  xdg.configFile."weechat" = {
+    source = link "${config-files}/weechat";
     recursive = true;
   };
   xdg.configFile."mpd/mpd.conf".text = config.services.mpd.generatedConfig;

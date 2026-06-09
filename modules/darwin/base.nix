@@ -1,4 +1,8 @@
 { self, pkgs, ... }: {
+  imports = [
+    ../overlays
+  ];
+
   environment.systemPackages = [ ];
   environment.shells = [ pkgs.fish ];
 
