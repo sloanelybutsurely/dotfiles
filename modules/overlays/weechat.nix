@@ -3,6 +3,9 @@ final: prev: {
     configure = { availablePlugins, ... }: {
       scripts = with prev.weechatScripts; [
         wee-slack
+        weechat-go
+        weechat-autosort
+        edit
       ];
 
       plugins = builtins.attrValues (builtins.removeAttrs availablePlugins [ "php" ]);
