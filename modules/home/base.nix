@@ -97,6 +97,12 @@ in
       max-downloads 6
       podlist-format "%4i %-70b [%6p %%] %S"
       player "mpv --no-audio-display"
+
+      # binds
+      bind k everywhere up
+      bind j everywhere down
+      bind ^U everywhere halfpageup
+      bind ^D everywhere halfpagedown
     '';
   };
 
