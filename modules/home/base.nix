@@ -82,6 +82,7 @@ in
       delete-played-files yes
       max-downloads 6
       podlist-format "%4i %-70b [%6p %%] %S"
+      player "mpv --no-audio-display"
     '';
   };
 
