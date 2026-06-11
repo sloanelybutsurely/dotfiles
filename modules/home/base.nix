@@ -91,7 +91,7 @@ in
     extraConfig = ''
       CopyArrivalDate yes
       Create          Near
-      # Expunge         Both
+      Expunge         Both
 
       IMAPAccount  personal
       Host         imap.fastmail.com
