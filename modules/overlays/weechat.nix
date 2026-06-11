@@ -4,6 +4,8 @@ final: prev: {
       scripts = with prev.weechatScripts; [
         wee-slack
       ];
+
+      plugins = builtins.attrValues (builtins.removeAttrs availablePlugins [ "php" ]);
     };
   };
 
