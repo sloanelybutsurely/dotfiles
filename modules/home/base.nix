@@ -24,6 +24,7 @@ in
     cyanrip
     customWeechat
     mpv
+    notmuch
   ];
 
   home.sessionVariables = {
@@ -81,6 +82,51 @@ in
       delete-played-files yes
       max-downloads 6
       podlist-format "%4i %-70b [%6p %%] %S"
+    '';
+  };
+
+  programs.mbsync = {
+    enable = true;
+    extraConfig = ''
+      CopyArrivalDate yes
+      Create          Near
+      # Expunge         Both
+
+      IMAPAccount  personal
+      Host         imap.fastmail.com
+      UserCmd      "op read 'op://Private/Fastmail/username'"
+      PassCmd      "op read 'op://Private/Fastmail/Email App Password'"
+      TLSType      IMAPS
+
+      MaildirStore local
+      Path         ~/.mail/
+      Inbox        ~/.mail/Inbox
+      SubFolders   Verbatim
+
+      IMAPStore personal
+      Account   personal
+
+      Channel   personal
+      Far       :personal:
+      Near      :local:
+      Patterns  *
+    '';
+  };
+  programs.msmtp = {
+    enable = true;
+    configContent = ''
+      defaults
+      auth  on
+      tls   on
+
+      # personal
+      account         personal
+      host            smtp.fastmail.com
+      port            465
+      from            sloane@sloanelybutsurely.com
+      user            sloane@sloanelybutsurely.com
+      passwordeval    op read "op://Private/Fastmail/Email App Password"
+      tls_starttls    off
     '';
   };
 
