@@ -10,7 +10,6 @@ in
   home.packages = with pkgs; [
     ripgrep
     fd
-    neovim
     difftastic
     htop
     wget
@@ -28,7 +27,6 @@ in
   ];
 
   home.sessionVariables = {
-    EDITOR = "nvim";
     MANPAGER = "nvim +Man!";
   };
 
@@ -47,6 +45,21 @@ in
     interactiveShellInit = ''
       fish_vi_key_bindings
     '';
+  };
+  programs.neovim = {
+    enable = true;
+    sideloadInitLua = true;
+    viAlias = true;
+    vimAlias = true;
+    defaultEditor = true;
+    plugins = with pkgs.vimPlugins; [
+      nvim-treesitter-parsers.elixir
+    ];
+    extraPackages = with pkgs; [
+      typescript-language-server
+      lua-language-server
+      elixir-ls
+    ];
   };
   programs.zoxide.enable = true;
   programs.mise = {

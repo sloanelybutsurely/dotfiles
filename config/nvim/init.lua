@@ -24,7 +24,7 @@ vim.opt.expandtab = true
 
 
 -- lsp
-vim.lsp.enable({ 'lua_ls', 'expert', 'ts_ls' })
+vim.lsp.enable({ 'lua_ls', 'elixirls', 'ts_ls' })
 local lsp_group = vim.api.nvim_create_augroup('sloane.lsp', {})
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_group,
