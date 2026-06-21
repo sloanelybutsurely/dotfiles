@@ -59,6 +59,7 @@ in
       typescript-language-server
       lua-language-server
       elixir-ls
+      gopls
     ];
   };
   programs.zoxide.enable = true;
