@@ -9,8 +9,10 @@ set $right l
 set $term foot
 set $menu rofi -show combi -combi-modes "window,drun"
 
+set $background ~/.config/sway/wallpaper/macos-9-blue-dalmation.jpg
+
 # https://512pixels.net/projects/mac-os-9-5k-wallpapers/
-output * bg ~/.config/sway/wallpaper/macos-9-blue-dalmation.jpg fill
+output * bg $background fill
 
 font MonoLisaCode 10
 
@@ -20,9 +22,9 @@ exec 1password --silent
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock -f -i ~/.config/sway/wallpaper/macos-9-blue-dalmation.jpg' \
+         timeout 300 "swaylock -f -i $background" \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -i ~/.config/sway/wallpaper/macos-9-blue-dalmation.jpg'
+         before-sleep "swaylock -f -i $background"
 
 ### Input configuration
 #
