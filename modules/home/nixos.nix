@@ -55,4 +55,5 @@ in
     musicDirectory = "${config.home.homeDirectory}/media/music";
     network.startWhenNeeded = true;
   };
+  services.udiskie.enable = true;
 }
