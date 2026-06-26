@@ -70,6 +70,7 @@
     neovim
     wget
     git
+    cifs-utils
   ];
 
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
@@ -84,6 +85,36 @@
       RestartSec = 1;
       TimeoutStopSec = 10;
     };
+  };
+
+  fileSystems."/media/NAS/Personal" = {
+    device = "//NAS/Personal";
+    fsType = "cifs";
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=60"
+      "x-systemd.device-timeout=5s"
+      "x-systemd.mount-timeout=5s"
+      "vers=2.0"
+      "credentials=/etc/nixos/smb-secrets"
+      "uid=1000,gid=100"
+    ];
+  };
+
+  fileSystems."/media/NAS/Media" = {
+    device = "//NAS/Media";
+    fsType = "cifs";
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=60"
+      "x-systemd.device-timeout=5s"
+      "x-systemd.mount-timeout=5s"
+      "vers=2.0"
+      "credentials=/etc/nixos/smb-secrets"
+      "uid=1000,gid=100"
+    ];
   };
 
   system.stateVersion = "26.05"; # Did you read the comment?
