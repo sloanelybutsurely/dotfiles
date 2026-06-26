@@ -24,6 +24,8 @@ in
     customWeechat
     mpv
     notmuch
+    pv
+    file
   ];
 
   home.sessionVariables = {
