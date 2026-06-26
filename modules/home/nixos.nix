@@ -8,6 +8,7 @@ in
   home.packages = with pkgs; [
     qutebrowser
     discord
+    qemu
   ];
 
   programs.fish = {
