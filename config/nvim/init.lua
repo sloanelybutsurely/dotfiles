@@ -94,3 +94,6 @@ vim.keymap.set('n', '<leader>%', '<cmd>vsplit<cr>')
 -- telescope
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').find_files)
 vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep)
+
+-- oild
+vim.keymap.set('n', '<leader><tab>', require('oil').toggle_float)
