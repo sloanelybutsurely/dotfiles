@@ -1,7 +1,5 @@
 vim.pack.add({
   { src = 'https://github.com/nvim-mini/mini.nvim',           version = 'stable' },
-  -- { src = 'https://github.com/catppuccin/vim',                name = 'catppuccin' },
-
   { src = 'https://github.com/stevearc/oil.nvim',             version = 'v2.16.0' },
   -- TODO: consider replacing with `mini.pick`. plenary is slated for archival
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
@@ -96,5 +94,3 @@ vim.keymap.set('n', '<leader>%', '<cmd>vsplit<cr>')
 -- telescope
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').find_files)
 vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep)
-
--- vim.cmd.colorscheme('catppuccin_mocha')
