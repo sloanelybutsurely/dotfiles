@@ -2,9 +2,7 @@ vim.pack.add({
   { src = 'https://github.com/nvim-mini/mini.nvim',           version = 'stable' },
   -- { src = 'https://github.com/catppuccin/vim',                name = 'catppuccin' },
 
-  -- TODO: consider replacing this with `mini.files`
-  { src = 'https://github.com/nvim-tree/nvim-tree.lua',       version = 'v1.17' },
-
+  { src = 'https://github.com/stevearc/oil.nvim',             version = 'v2.16.0' },
   -- TODO: consider replacing with `mini.pick`. plenary is slated for archival
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
   { src = 'https://github.com/nvim-telescope/telescope.nvim', version = 'v0.2.2' },
@@ -64,28 +62,7 @@ require('mini.completion').setup({
   },
 })
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-require('nvim-tree').setup({
-  renderer = {
-    icons = {
-      glyphs = {
-        folder = {
-          arrow_open = "-",
-          arrow_closed = "+",
-        }
-      },
-      show = {
-        file = false,
-        folder = false,
-        git = false,
-        diagnostics = false,
-        bookmarks = false,
-        folder_arrow = true,
-      },
-    },
-  },
-})
+require('oil').setup()
 
 -- keymap
 vim.g.mapleader = " "
@@ -115,12 +92,6 @@ vim.keymap.set('n', '<leader>q', '<cmd>q<cr>')
 -- quickly open splits
 vim.keymap.set('n', '<leader>"', '<cmd>split<cr>')
 vim.keymap.set('n', '<leader>%', '<cmd>vsplit<cr>')
-
--- nvim-tree
-vim.keymap.set('n', '<leader><tab>', require('nvim-tree.api').tree.toggle)
-vim.keymap.set('n', '<leader>fl', function()
-  require('nvim-tree.api').tree.find_file({ open = true })
-end)
 
 -- telescope
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').find_files)
