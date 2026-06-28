@@ -6,6 +6,10 @@ in
 {
   home.homeDirectory = "/Users/sloane";
 
+  home.sessionVariables = {
+    BROWSER = "qutebrowser";
+  };
+
   programs.fish = {
     functions = {
       rebuild-system = "sudo darwin-rebuild switch --flake ~/.config/nix-config#(hostname)";

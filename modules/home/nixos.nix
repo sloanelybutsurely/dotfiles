@@ -44,6 +44,13 @@ in
     recursive = true;
   };
   xdg.configFile."foot/foot.ini".source = link "${config-files}/foot/foot.ini";
+  xdg.mimeApps.defaultApplications = {
+    "text/html" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/about" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
+  };
 
   programs.ssh = {
     enable = true;
