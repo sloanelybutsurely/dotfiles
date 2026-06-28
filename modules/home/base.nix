@@ -154,6 +154,16 @@ in
     '';
   };
 
+  programs.senpai = {
+    enable = true;
+    config = {
+      address = "ircs://chat.sr.ht";
+      username = "sloanelybutsurely";
+      password-cmd = ["op" "read" "op://Private/SourceHut/chat.sr.ht"];
+      nickname = "sloane";
+    };
+  };
+
   xdg.configFile."nixpkgs/config.nix".text = "{ allowUnfree = true; }";
   xdg.configFile."jj/config.toml".source = link "${config-files}/jj/config.toml";
   xdg.configFile."rmpc/config.ron".source = link "${config-files}/rmpc/config.ron";
