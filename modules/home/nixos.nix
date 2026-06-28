@@ -50,7 +50,7 @@ in
     enableDefaultConfig = false;
     settings = {
       "Host *" = {
-        IdentityAgent = "${config.home.homeDirectory}/.1password.agent.sock";
+        IdentityAgent = "${config.home.homeDirectory}/.1password/agent.sock";
       };
     };
   };
