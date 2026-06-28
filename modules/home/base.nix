@@ -26,6 +26,7 @@ in
     notmuch
     pv
     file
+    unzip
   ];
 
   home.sessionVariables = {
