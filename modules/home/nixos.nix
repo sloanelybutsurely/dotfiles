@@ -16,22 +16,27 @@ in
       rebuild-system = "sudo nixos-rebuild switch --flake ~/.config/nix-config#(hostname)";
     };
   };
-  programs.waybar = {
-    enable = true;
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "top";
-        height = 30;
-        modules-left =  [ "sway/workspaces" "sway/mode" ];
-        modules-center = [ ];
-
-        "clock".format = "{:%a %b %e, %y %I:%M %p}";
-        "cpu".format = "CPU {usage}%";
-        "memory".format = "MEM {percentage}%";
-      };
-    };
-  };
+  # programs.waybar = {
+  #   enable = true;
+  #   settings = {
+  #     mainBar = {
+  #       layer = "top";
+  #       position = "top";
+  #       height = 30;
+  #       modules-left =  [ "sway/workspaces" "sway/mode" ];
+  #       modules-center = [ ];
+  #
+  #       "clock".format = "{:%a %b %e, %y %I:%M %p}";
+  #       "cpu".format = "CPU {usage}%";
+  #       "memory".format = "MEM {percentage}%";
+  #     };
+  #   };
+  #   style = ''
+  #     * {
+  #       font-family: MonoLisaText;
+  #     }
+  #   '';
+  # };
   programs.newsboat.browser = ''"exec qutebrowser %u > /dev/null 2>&1 &"'';
 
   xdg.configFile."sway" = {

@@ -202,7 +202,13 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-  swaybar_command waybar
+  position top
+  status_command while ~/.config/sway/status-$(hostname).sh; do sleep 5; done
+  colors {
+    statusline #ffffff
+    background #323232
+    inactive_workspace #32323200 #32323200 #5c5c5c
+  }
 }
 
 include "~/.config/sway/config-$(hostname)"
