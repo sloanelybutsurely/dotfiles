@@ -30,6 +30,7 @@ in
   ];
 
   home.sessionVariables = {
+    XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
     MANPAGER = "nvim +Man!";
   };
 
