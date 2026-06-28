@@ -43,9 +43,6 @@ exec swayidle -w \
 #
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
-input type:keyboard {
-  xkb_options altwin:swap_lalt_lwin
-}
 
 ### Key bindings
 #
