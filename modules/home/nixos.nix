@@ -42,10 +42,12 @@ in
 
   programs.ssh = {
     enable = true;
-    extraConfig = ''
-      Host *
-        IdentityAgent ${config.home.homeDirectory}/.1password/agent.sock
-    '';
+    enableDefaultConfig = false;
+    settings = {
+      "Host *" = {
+        IdentityAgent = "${config.home.homeDirectory}/.1password.agent.sock";
+      };
+    };
   };
   programs.firefox.enable = true;
   programs.rofi.enable = true;
