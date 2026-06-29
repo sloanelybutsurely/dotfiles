@@ -28,7 +28,6 @@ in
   ];
 
   home.sessionVariables = {
-    XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
     MANPAGER = "nvim +Man!";
   };
 
@@ -161,6 +160,10 @@ in
     };
   };
 
+  xdg = {
+    enable = true;
+    configHome = "${config.home.homeDirectory}/.config";
+  };
   xdg.configFile."nixpkgs/config.nix".text = "{ allowUnfree = true; }";
   xdg.configFile."jj/config.toml".source = link "${config-files}/jj/config.toml";
   xdg.configFile."rmpc/config.ron".source = link "${config-files}/rmpc/config.ron";
@@ -177,6 +180,18 @@ in
     recursive = true;
   };
   xdg.configFile."mpd/mpd.conf".text = config.services.mpd.generatedConfig;
+  xdg.configFile."aerc/sync-folder.sh" = {
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+      case "$AERC_FOLDER" in
+        Inbox) folder="INBOX" ;;
+        *)     folder="$AERC_FOLDER" ;;
+      esac
+
+      ${pkgs.isync}/bin/mbsync "$AERC_ACCOUNT:$folder" && ${pkgs.notmuch}/bin/notmuch new
+    '';
+  };
 
   ## email
   services.imapnotify.enable = true;
@@ -197,9 +212,9 @@ in
         "message/rfc822" = "colorize";
       };
       hooks = {
-        flag-changed = ''mbsync "$AERC_ACCOUNT:$AERC_FOLDER" && notmuch new &'';
-        mail-deleted = ''mbsync "$AERC_ACCOUNT:$AERC_FOLDER" && notmuch new &'';
-        mail-added = ''mbsync "$AERC_ACCOUNT:$AERC_FOLDER" && notmuch new &'';
+        flag-changed = "${config.xdg.configHome}/aerc/sync-folder.sh &";
+        mail-deleted = "${config.xdg.configHome}/aerc/sync-folder.sh &";
+        mail-added = "${config.xdg.configHome}/aerc/sync-folder.sh &";
       };
     };
     extraBinds = {
