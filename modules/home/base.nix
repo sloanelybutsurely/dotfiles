@@ -189,7 +189,7 @@ in
         *)     folder="$AERC_FOLDER" ;;
       esac
 
-      ${pkgs.isync}/bin/mbsync "$AERC_ACCOUNT:$folder" && ${pkgs.notmuch}/bin/notmuch new
+      ${pkgs.isync}/bin/mbsync "$AERC_ACCOUNT:$folder"
     '';
   };
 
