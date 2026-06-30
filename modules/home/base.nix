@@ -409,6 +409,7 @@ in
     aerc = {
       enable = true;
       extraAccounts = {
+        folders-sort = "Inbox,Drafts,Sent,Archive";
         check-mail-cmd = "mbsync -a && notmuch new";
         check-mail-timeout = "30s";
         multi-file-strategy = "act-dir";
