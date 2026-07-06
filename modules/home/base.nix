@@ -53,6 +53,22 @@ in
         wraps = "nvim";
         body = "command nvim +Oil $argv";
       };
+      note = ''
+        set -l dest ~/notes
+        set -l buf $(mktemp note.XXXXX)
+        set -l prefix $(printf %x $(date +%s))
+
+        command nvim $buf
+
+        set -l safe_title $(
+          head -n 1 $buf | \
+            sed -E -e 's/\W+/-/g' -e 's/^\W+//g' -e 's/\W+$//g' | \
+            tr '[:upper:]' '[:lower:]'
+        )
+        set -l out "$prefix"_"$safe_title".md
+        mv $buf $dest/$out
+        echo "Saved note to $dest/$out"
+      '';
     };
   };
   programs.git.enable = true;
