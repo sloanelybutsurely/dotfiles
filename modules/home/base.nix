@@ -26,6 +26,7 @@ in
     file
     unzip
     w3m
+    fzy
   ];
 
   home.sessionVariables = {
