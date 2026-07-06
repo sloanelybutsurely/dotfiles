@@ -16,6 +16,7 @@ in
     };
   };
   programs.newsboat.browser = ''"open %u"'';
+  programs.git.ignores = [ ".DS_Store" ];
 
   xdg.configFile."kitty/kitty.conf".source = link "${config-files}/kitty/kitty.conf";
 

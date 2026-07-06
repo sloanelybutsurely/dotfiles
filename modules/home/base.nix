@@ -47,6 +47,7 @@ in
       fish_vi_key_bindings
     '';
   };
+  programs.git.enable = true;
   programs.neovim = {
     enable = true;
     sideloadInitLua = true;
