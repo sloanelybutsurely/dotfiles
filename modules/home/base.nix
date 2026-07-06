@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 let
   link = config.lib.file.mkOutOfStoreSymlink;
-  config-files = "${config.home.homeDirectory}/.config/nix-config/config";
+  nix-config = "${config.home.homeDirectory}/.config/nix-config";
+  config-files = "${nix-config}/config";
 in
 {
   home.username = "sloane";
@@ -27,6 +28,7 @@ in
     unzip
     w3m
     fzy
+    gnused
   ];
 
   home.sessionVariables = {
@@ -45,6 +47,9 @@ in
     shellAbbrs = {
       j = "jj";
     };
+    shellInit = ''
+      set --global --prepend fish_function_path ~/.bin/functions
+    '';
     interactiveShellInit = ''
       fish_vi_key_bindings
     '';
@@ -117,7 +122,6 @@ in
 
       # podcasts
       # podcast-auto-enqueue yes
-      download-path "/media/NAS/Media/Podcasts/%n/"
       download-path "~/media/podcasts/%n"
       download-filename-format "%F - %t.%e"
       delete-played-files yes
@@ -217,6 +221,11 @@ in
 
       ${pkgs.isync}/bin/mbsync "$AERC_ACCOUNT:$folder"
     '';
+  };
+
+  home.file.".bin" = {
+    recursive = true;
+    source = link "${nix-config}/bin";
   };
 
   ## email
@@ -326,6 +335,8 @@ in
         pb = ":patch rebase<Enter>";
         pt = ":patch term<Enter>";
         ps = ":patch switch <Tab>";
+
+        R = ":check-mail<Enter>";
       };
       "messages:folder=Drafts" = {
         "<Enter>" = ":recall<Enter>";

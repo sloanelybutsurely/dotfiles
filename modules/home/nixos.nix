@@ -76,4 +76,10 @@ in
     network.startWhenNeeded = true;
   };
   services.udiskie.enable = true;
+
+  home.file."media/podcasts" = {
+    enable = true;
+    source = link /media/NAS/Media/Podcasts;
+    recursive = true;
+  };
 }

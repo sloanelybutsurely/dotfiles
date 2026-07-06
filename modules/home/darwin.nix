@@ -20,11 +20,16 @@ in
 
   xdg.configFile."kitty/kitty.conf".source = link "${config-files}/kitty/kitty.conf";
 
-  # so does qute
-  home.file."Library/Preferences/qutebrowser" = {
-    source = link "${config.home.homeDirectory}/.config/qutebrowser";
+  services.mpd.musicDirectory = "${config.home.homeDirectory}/Music/iPod/Music";
+
+  home.file."media/podcasts" = {
+    enable = true;
+    source = link /Volumes/Media/Podcasts;
     recursive = true;
   };
-
-  services.mpd.musicDirectory = "${config.home.homeDirectory}/Music/iPod/Music";
+  home.file."media/music" = {
+    enable = true;
+    source = link /Volumes/Media/Music/Music;
+    recursive = true;
+  };
 }
