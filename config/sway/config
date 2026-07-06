@@ -9,10 +9,9 @@ set $right l
 set $term foot
 set $menu rofi -show combi -combi-modes "window,drun"
 
-set $background ~/.config/sway/wallpaper/macos-9-blue-dalmation.jpg
+set $background ~/.config/sway/wallpaper/shinnecock-long-island-william-merrit-chase-1896.jpg
 
-# https://512pixels.net/projects/mac-os-9-5k-wallpapers/
-output * bg $background fill
+output * bg $background center #798491
 
 font MonoLisaCode 10
 
