@@ -11,6 +11,12 @@ in
     qemu
   ];
 
+  home.file."media/podcasts" = {
+    enable = true;
+    recursive = true;
+    source = link /media/NAS/Media/Podcasts;
+  };
+
   programs.fish = {
     functions = {
       rebuild-system = "sudo nixos-rebuild switch --flake ~/.config/nix-config#(hostname)";

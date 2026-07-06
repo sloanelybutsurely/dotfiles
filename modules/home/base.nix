@@ -95,6 +95,7 @@ in
       # podcasts
       # podcast-auto-enqueue yes
       download-path "/media/NAS/Media/Podcasts/%n/"
+      download-path "~/media/podcasts/%n"
       download-filename-format "%F - %t.%e"
       delete-played-files yes
       max-downloads 6
