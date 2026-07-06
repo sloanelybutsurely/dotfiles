@@ -47,6 +47,12 @@ in
     interactiveShellInit = ''
       fish_vi_key_bindings
     '';
+    functions = {
+      oil = {
+        wraps = "nvim";
+        body = "command nvim +Oil $argv";
+      };
+    };
   };
   programs.git.enable = true;
   programs.neovim = {
