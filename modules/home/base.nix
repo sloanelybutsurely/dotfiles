@@ -25,6 +25,7 @@ in
     pv
     file
     unzip
+    w3m
   ];
 
   home.sessionVariables = {
@@ -208,7 +209,7 @@ in
         ".headers" = "colorize";
         "text/plain" = "colorize";
         "text/calendar" = "calendar";
-        "text/html" = "! html | colorize";
+        "text/html" = "! w3m -I UTF-8 -T text/html";
         "message/delivery-status" = "colorize";
         "message/rfc822" = "colorize";
       };
