@@ -138,15 +138,16 @@ in
       hostname="${config.networking.hostName}"
       backuptargets="home"
       verbose=1
-      tarsnapbackupoptions="--one-file-system --humanize-numbers"
+      tarsnapbackupoptions="--one-file-system --humanize-numbers -v"
     '';
   };
 
   systemd.timers."acts" = {
     enable = true;
-    wantedBy = [ "acts.target" ];
+    wantedBy = [ "timers.target" ];
     timerConfig = {
       OnCalendar = "daily";
+      Persistent = true;
       Unit = "acts.service";
     };
   };
@@ -154,8 +155,10 @@ in
   systemd.services."acts" = {
     enable = true;
     script = "${actsPkg}/bin/acts";
+    requires = [ "network-online.target" ];
     serviceConfig = {
       Type = "oneshot";
+      IOSchedulingClass = "idle";
       User = "root";
     };
   };
