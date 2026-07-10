@@ -1,3 +1,4 @@
 **/parser/*.dylib
 config/qutebrowser/autoconfig.yml
 config/weechat/sec.conf
+config/qutebrowser/qsettings/
