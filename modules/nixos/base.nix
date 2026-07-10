@@ -4,7 +4,17 @@
   pkgs,
   ...
 }:
-
+let
+  acts = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/alexjurkiewicz/acts/refs/tags/v1.4.2/acts";
+    hash = "sha256-eiVBF45kOY8nRUsUa6oTzZS2Ylu5oBc75oyqe5FENFU=";
+  };
+  actsPkg = pkgs.runCommand "acts" { } ''
+    mkdir -p $out/bin
+    cp ${acts} $out/bin/acts
+    chmod +x $out/bin/acts
+  '';
+in
 {
   imports = [
     ../overlays
@@ -73,6 +83,8 @@
     wget
     git
     cifs-utils
+    tarsnap
+    actsPkg
   ];
 
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
@@ -117,6 +129,35 @@
       "credentials=/etc/nixos/smb-secrets"
       "uid=1000,gid=100"
     ];
+  };
+
+  environment.etc."acts.conf" = {
+    enable = true;
+    text = ''
+      tarsnap="${pkgs.tarsnap}/bin/tarsnap --keyfile /root/tarsnap.key --cachedir /var/cache/tarsnap"
+      hostname="${config.networking.hostName}"
+      backuptargets="home"
+      verbose=1
+      tarsnapbackupoptions="--one-file-system --humanize-numbers"
+    '';
+  };
+
+  systemd.timers."acts" = {
+    enable = true;
+    wantedBy = [ "acts.target" ];
+    timerConfig = {
+      OnCalendar = "daily";
+      Unit = "acts.service";
+    };
+  };
+
+  systemd.services."acts" = {
+    enable = true;
+    script = "${actsPkg}/bin/acts";
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
   };
 
   system.stateVersion = "26.05"; # Did you read the comment?
