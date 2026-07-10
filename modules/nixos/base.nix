@@ -154,6 +154,16 @@ in
 
   systemd.services."acts" = {
     enable = true;
+    path = with pkgs; [
+      iputils
+      util-linux
+      gawk
+      actsPkg
+      tarsnap
+    ];
+    preStart = ''
+      while ! ping -4 -q -c 1 v1-0-0-server.tarsnap.com &> /dev/null; do sleep 3; done
+    '';
     script = "${actsPkg}/bin/acts";
     requires = [ "network-online.target" ];
     serviceConfig = {
