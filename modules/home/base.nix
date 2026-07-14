@@ -29,6 +29,7 @@ in
     w3m
     fzy
     gnused
+    restic
   ];
 
   home.sessionVariables = {
