@@ -295,7 +295,7 @@ in
         zb = ":align bottom<Enter>";
 
         "<Enter>" = ":view<Enter>";
-        "\\#" = ":delete<Enter>";
+        "\\#" = ":read<Enter>:move Trash<Enter>";
         e = ":archive flat<Enter>";
         E = ":unmark -a<Enter>:mark -T<Enter>:archive flat<Enter>";
 
@@ -337,7 +337,7 @@ in
         o = ":open<Enter>";
         S = ":save<Space>";
         "|" = ":pipe<Space>";
-        "\\#" = ":delete<Enter>";
+        "\\#" = ":read<Enter>:move Trash<Enter>";
         e = ":archive flat<Enter>";
 
         "<C-y>" = ":copy-link<Space>";
@@ -439,6 +439,7 @@ in
         check-mail-cmd = "mbsync -a && notmuch new";
         check-mail-timeout = "30s";
         multi-file-strategy = "act-dir";
+        restrict-delete = true;
       };
     };
     mbsync = {
