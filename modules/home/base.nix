@@ -220,7 +220,7 @@ in
         *)     folder="$AERC_FOLDER" ;;
       esac
 
-      ${pkgs.isync}/bin/mbsync "$AERC_ACCOUNT:$folder"
+      ${pkgs.isync}/bin/mbsync "$AERC_ACCOUNT:$folder" && ${pkgs.notmuch}/bin/notmuch
     '';
   };
 
@@ -306,8 +306,7 @@ in
 
         "<Enter>" = ":view<Enter>";
         "\\#" = ":read<Enter>:move Trash<Enter>";
-        e = ":archive flat<Enter>";
-        E = ":unmark -a<Enter>:mark -T<Enter>:archive flat<Enter>";
+        e = ":read<Enter>:archive flat<Enter>";
 
         C = ":compose<Enter>";
         m = ":compose<Enter>";
@@ -350,7 +349,7 @@ in
         S = ":save<Space>";
         "|" = ":pipe<Space>";
         "\\#" = ":read<Enter>:move Trash<Enter>";
-        e = ":archive flat<Enter>";
+        e = ":read<Enter>:archive flat<Enter>";
 
         "<C-y>" = ":copy-link<Space>";
         "<C-l>" = ":open-link<Space>";
