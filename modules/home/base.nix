@@ -30,6 +30,7 @@ in
     fzy
     gnused
     restic
+    lf
   ];
 
   home.sessionVariables = {
