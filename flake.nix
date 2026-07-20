@@ -45,6 +45,28 @@
         ];
       };
 
+      darwinConfigurations."Sloanes-Work-MacBook" = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit self inputs; };
+        modules = [
+          ./modules/darwin/base.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "before-home-manager";
+              users.sloane = {
+                imports = [
+                  ./modules/home/base.nix
+                  ./modules/home/darwin.nix
+                  ./modules/home/work.nix
+                ];
+              };
+            };
+          }
+        ];
+      };
+
       nixosConfigurations."nixos-thinkpad" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
