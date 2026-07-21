@@ -434,12 +434,12 @@ in
   };
   accounts.email.accounts.personal = {
     primary = true;
-    userName = "sloane@sloanelybutsurely.com";
+    userName = "hello@sloaneperrault.com";
     # create this: `op read ... > ~/.secrets/mail`
     # this doesn't use 1password directly because `op` doesn't work (or at
     # least i can't get it to work) inside a systemd user service (imapnotify).
     passwordCommand = "${pkgs.coreutils}/bin/cat ${config.home.homeDirectory}/.secrets/mail";
-    address = "sloane@sloanelybutsurely.com";
+    address = "hello@sloaneperrault.com";
     realName = "Sloane Perrault";
     imap.host = "imap.fastmail.com";
     smtp.host = "smtp.fastmail.com";
