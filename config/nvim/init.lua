@@ -18,6 +18,8 @@ vim.opt.shiftwidth = tabsize
 vim.opt.tabstop = tabsize
 vim.opt.expandtab = true
 
+vim.opt.spelllang = 'en_us'
+
 
 -- lsp
 vim.lsp.enable({ 'lua_ls', 'elixirls', 'ts_ls', 'gopls' })
