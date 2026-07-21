@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   link = config.lib.file.mkOutOfStoreSymlink;
   nix-config = "${config.home.homeDirectory}/.config/nix-config";
@@ -31,6 +31,8 @@ in
     gnused
     restic
     lf
+    _1password-cli
+    nq
   ];
 
   home.sessionVariables = {
@@ -139,49 +141,6 @@ in
     '';
   };
 
-  #   extraConfig = ''
-  #     CopyArrivalDate yes
-  #     Create          Near
-  #     Expunge         Both
-  #
-  #     IMAPAccount  personal
-  #     Host         imap.fastmail.com
-  #     UserCmd      "op read 'op://Private/Fastmail/username'"
-  #     PassCmd      "op read 'op://Private/Fastmail/Email App Password'"
-  #     TLSType      IMAPS
-  #
-  #     MaildirStore local
-  #     Path         ~/.mail/
-  #     Inbox        ~/.mail/Inbox
-  #     SubFolders   Verbatim
-  #
-  #     IMAPStore personal
-  #     Account   personal
-  #
-  #     Channel   personal
-  #     Far       :personal:
-  #     Near      :local:
-  #     Patterns  *
-  #   '';
-  # };
-  # programs.msmtp = {
-  #   enable = true;
-  #   configContent = ''
-  #     defaults
-  #     auth  on
-  #     tls   on
-  #
-  #     # personal
-  #     account         personal
-  #     host            smtp.fastmail.com
-  #     port            465
-  #     from            sloane@sloanelybutsurely.com
-  #     user            sloane@sloanelybutsurely.com
-  #     passwordeval    op read "op://Private/Fastmail/Email App Password"
-  #     tls_starttls    off
-  #   '';
-  # };
-
   programs.senpai = {
     enable = true;
     config = {
@@ -221,7 +180,7 @@ in
         *)     folder="$AERC_FOLDER" ;;
       esac
 
-      ${pkgs.isync}/bin/mbsync "$AERC_ACCOUNT:$folder" && ${pkgs.notmuch}/bin/notmuch
+      ${pkgs.isync}/bin/mbsync "$AERC_ACCOUNT:$folder" && ${pkgs.notmuch}/bin/notmuch new
     '';
   };
 
@@ -230,230 +189,64 @@ in
     source = link "${nix-config}/bin";
   };
 
+  home.activation.mailSecrets = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run mkdir -p ${config.home.homeDirectory}/.secrets/mail
+    run ${pkgs._1password-cli}/bin/op read "op://Private/Purelymail/home-manager" > ${config.home.homeDirectory}/.secrets/mail/personal
+    run chmod 0600 ${config.home.homeDirectory}/.secrets/mail/personal
+  '';
+
   ## email
   services.imapnotify.enable = true;
   programs.aerc = {
     enable = true;
-    extraConfig = {
-      general.unsafe-accounts-conf = true;
-      viewer = {
-        alternatives = "text/plain,text/html";
-        pager = "less -Rc --wordwrap";
+    extraConfig = let
+      iniFormat = pkgs.formats.iniWithGlobalSection {};
+      nqSyncFolder = "NQDIR=${config.xdg.stateHome}/aerc ${pkgs.nq}/bin/nq -c ${config.xdg.configHome}/aerc/sync-folder.sh";
+      cfgText = iniFormat.generate "aerc.conf" {
+        sections = {
+          general.unsafe-accounts-conf = true;
+          hooks = {
+            flag-changed = nqSyncFolder;
+            mail-added   = nqSyncFolder;
+            mail-deleted = nqSyncFolder;
+          };
+        };
       };
-      filters = {
-        ".headers" = "colorize";
-        "text/plain" = "colorize";
-        "text/calendar" = "calendar";
-        "text/html" = "! w3m -I UTF-8 -T text/html";
-        "message/delivery-status" = "colorize";
-        "message/rfc822" = "colorize";
-      };
-      hooks = {
-        flag-changed = "${config.xdg.configHome}/aerc/sync-folder.sh &";
-        mail-deleted = "${config.xdg.configHome}/aerc/sync-folder.sh &";
-        mail-added = "${config.xdg.configHome}/aerc/sync-folder.sh &";
-      };
-    };
-    extraBinds = {
-      global = {
-        "<C-p>" = ":prev-tab<Enter>";
-        "<C-n>" = ":next-tab<Enter>";
-        "<C-t>" = ":term<Enter>";
-        "?" = ":help keys<Enter>";
-        "<C-z>" = ":suspend<Enter>";
-        "<Semicolon>" = ":";
-      };
-      messages = {
-        q = ":quit<Enter>";
+      in
+      ''
+      ${builtins.readFile cfgText}
 
-        j = ":next<Enter>";
-        "<Down>" = ":next<Enter>";
-        "<C-d>" = ":next 50%<Enter>";
-        "<C-f>" = ":next 100%<Enter>";
-        "<PgDn>" = ":next 100%<Enter>";
-
-        k = ":prev<Enter>";
-        "<Up>" = ":prev<Enter>";
-        "<C-u>" = ":prev 50%<Enter>";
-        "<C-b>" = ":prev 100%<Enter>";
-        "<PgUp>" = ":prev 100%<Enter>";
-        g = ":select 0<Enter>";
-        G = ":select -1<Enter>";
-
-        J = ":next-folder<Enter>";
-        "<C-Down>" = ":next-folder<Enter>";
-        K = ":prev-folder<Enter>";
-        "<C-Up>" = ":prev-folder<Enter>";
-        H = ":collapse-folder<Enter>";
-        "<C-Left>" = ":collapse-folder<Enter>";
-        L = ":expand-folder<Enter>";
-        "<C-Right>" = ":expand-folder<Enter>";
-
-        v = ":mark -t<Enter>";
-        "<Space>" = ":mark -t<Enter>:next<Enter>";
-        V = ":mark -v<Enter>";
-
-        T = ":toggle-threads<Enter>";
-        zc = ":fold<Enter>";
-        zo = ":unfold<Enter>";
-        za = ":fold -t<Enter>";
-        zM = ":fold -a<Enter>";
-        zR = ":unfold -a<Enter>";
-        "<Tab>" = ":fold -t<Enter>";
-
-        zz = ":align center<Enter>";
-        zt = ":align top<Enter>";
-        zb = ":align bottom<Enter>";
-
-        "<Enter>" = ":view<Enter>";
-        "\\#" = ":read<Enter>:move Trash<Enter>";
-        e = ":read<Enter>:archive flat<Enter>";
-
-        C = ":compose<Enter>";
-        m = ":compose<Enter>";
-
-        b = ":bounce<Space>";
-
-        r = ":reply -aq<Enter>";
-
-        c = ":cf<Space>";
-        "$" = ":term<Space>";
-        "!" = ":term<Space>";
-        "|" = ":pipe<Space>";
-
-        "/" = ":search<Space>";
-        "\\" = ":filter<Space>";
-        n = ":next-result<Enter>";
-        N = ":prev-result<Enter>";
-        "<Esc>" = ":clear<Enter>";
-
-        s = ":split<Enter>";
-        S = ":vsplit<Enter>";
-
-        pl = ":patch list<Enter>";
-        pa = ":patch apply <Tab>";
-        pd = ":patch drop <Tab>";
-        pb = ":patch rebase<Enter>";
-        pt = ":patch term<Enter>";
-        ps = ":patch switch <Tab>";
-
-        R = ":check-mail<Enter>";
-      };
-      "messages:folder=Drafts" = {
-        "<Enter>" = ":recall<Enter>";
-      };
-      view = {
-        "/" = ":toggle-key-passthrough<Enter>/";
-        q = ":close<Enter>";
-        O = ":open<Enter>";
-        o = ":open<Enter>";
-        S = ":save<Space>";
-        "|" = ":pipe<Space>";
-        "\\#" = ":read<Enter>:move Trash<Enter>";
-        e = ":read<Enter>:archive flat<Enter>";
-
-        "<C-y>" = ":copy-link<Space>";
-        "<C-l>" = ":open-link<Space>";
-
-        f = ":forward<Enter>";
-        r = ":reply -aq<Enter>";
-
-        H = ":toggle-headers<Enter>";
-        "<C-k>" = ":prev-part<Enter>";
-        "<C-Up>" = ":prev-part<Enter>";
-        "<C-j>" = ":next-part<Enter>";
-        "<C-Down>" = ":next-part<Enter>";
-        J = ":next<Enter>";
-        "<C-Right>" = ":next<Enter>";
-        K = ":prev<Enter>";
-        "<C-Left>" = ":prev<Enter>";
-      };
-      "view::passthrough" = {
-        "$noinherit" = "true";
-        "$ex" = "<C-x>";
-        "<Esc>" = ":toggle-key-passthrough<Enter>";
-      };
-      compose = {
-        "$noinherit" = "true";
-        "$ex" = "<C-x>";
-        "$complete" = "<C-o>";
-        "<C-k>" = ":prev-field<Enter>";
-        "<C-Up>" = ":prev-field<Enter>";
-        "<C-j>" = ":next-field<Enter>";
-        "<C-Down>" = ":next-field<Enter>";
-        "<A-p>" = ":switch-account -p<Enter>";
-        "<C-Left>" = ":switch-account -p<Enter>";
-        "<A-n>" = ":switch-account -n<Enter>";
-        "<C-Right>" = ":switch-account -n<Enter>";
-        "<Tab>" = ":next-field<Enter>";
-        "<Backtab>" = ":prev-field<Enter>";
-        "<C-p>" = ":prev-tab<Enter>";
-        "<C-PgUp>" = ":prev-tab<Enter>";
-        "<C-n>" = ":next-tab<Enter>";
-        "<C-PgDn>" = ":next-tab<Enter>";
-      };
-      "compose::editor" = {
-        "$noinherit" = "true";
-        "$ex" = "<C-x>";
-        "<C-k>" = ":prev-field<Enter>";
-        "<C-Up>" = ":prev-field<Enter>";
-        "<C-j>" = ":next-field<Enter>";
-        "<C-Down>" = ":next-field<Enter>";
-        "<C-p>" = ":prev-tab<Enter>";
-        "<C-PgUp>" = ":prev-tab<Enter>";
-        "<C-n>" = ":next-tab<Enter>";
-        "<C-PgDn>" = ":next-tab<Enter>";
-      };
-      "compose::review" = {
-        y = ":send<Enter>";
-        n = ":abort<Enter>";
-        s = ":sign<Enter>";
-        x = ":encrypt<Enter>";
-        v = ":preview<Enter>";
-        p = ":postpone<Enter>";
-        q = ":choose -o d discard abort -o p postpone postpone<Enter>";
-        e = ":edit<Enter>";
-        a = ":attach<Space>";
-        d = ":detach<Space>";
-      };
-      terminal = {
-        "$noinherit" = "true";
-        "$ex" = "<C-x>";
-        "<C-p>" = ":prev-tab<Enter>";
-        "<C-n>" = ":next-tab<Enter>";
-        "<C-PgUp>" = ":prev-tab<Enter>";
-        "<C-PgDn>" = ":next-tab<Enter>";
-      };
-    };
+      [filters]
+      text/plain=colorize
+      text/calendar=calendar
+      message/delivery-status=colorize
+      message/rfc822=colorize
+      #text/html=pandoc -f html -t plain | colorize
+      text/html=! html
+      #text/html=! w3m -T text/html -I UTF-8
+      #text/*=bat -fP --file-name="$AERC_FILENAME"
+      #application/x-sh=bat -fP -l sh
+      #image/*=catimg -w $(tput cols) -
+      #subject,~Git(hub|lab)=lolcat -f
+      #from,thatguywhodoesnothardwraphismessages=wrap -w 100 | colorize
+      .headers=colorize
+      '';
   };
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
   programs.notmuch.enable = true;
   accounts.email = {
-    maildirBasePath = "${config.home.homeDirectory}/.mail";
+    maildirBasePath = "${config.xdg.dataHome}/mail";
   };
   accounts.email.accounts.personal = {
     primary = true;
-    userName = "hello@sloaneperrault.com";
-    # create this: `op read ... > ~/.secrets/mail`
-    # this doesn't use 1password directly because `op` doesn't work (or at
-    # least i can't get it to work) inside a systemd user service (imapnotify).
-    passwordCommand = "${pkgs.coreutils}/bin/cat ${config.home.homeDirectory}/.secrets/mail";
-    address = "hello@sloaneperrault.com";
+    userName = "sloane@sloanelybutsurely.com";
+    passwordCommand = "${pkgs.coreutils}/bin/cat ${config.home.homeDirectory}/.secrets/mail/personal";
+    address = "sloane@sloanelybutsurely.com";
     realName = "Sloane Perrault";
-    imap.host = "imap.fastmail.com";
-    smtp.host = "smtp.fastmail.com";
+    imap.host = "imap.purelymail.com";
+    smtp.host = "smtp.purelymail.com";
 
-    aerc = {
-      enable = true;
-      extraAccounts = {
-        folders-sort = "Inbox,Drafts,Sent,Archive";
-        check-mail-cmd = "mbsync -a && notmuch new";
-        check-mail-timeout = "30s";
-        multi-file-strategy = "act-dir";
-        restrict-delete = true;
-      };
-    };
     mbsync = {
       enable = true;
       create = "maildir";
@@ -464,9 +257,18 @@ in
     notmuch.enable = true;
     imapnotify = {
       enable = true;
-      boxes = ["Inbox"];
-      onNotify = "${pkgs.isync}/bin/mbsync -a";
+      boxes = ["INBOX"];
+      onNotify = "${pkgs.isync}/bin/mbsync personal:INBOX";
       onNotifyPost = "${pkgs.notmuch}/bin/notmuch new";
+    };
+    aerc = {
+      enable = true;
+      extraAccounts = {
+        folders-sort = "Inbox,Archive,Drafts,Sent,Trash,Junk";
+        restrict-delete = true;
+        check-mail-cmd = "mbsync -a && notmuch new";
+        check-mail-timeout = "30s";
+      };
     };
   };
 }
