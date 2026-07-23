@@ -272,4 +272,21 @@ in
       };
     };
   };
+
+  programs.vdirsyncer.enable = true;
+  programs.khal.enable = true;
+  accounts.calendar = {
+    basePath = "${config.xdg.dataHome}/caldav";
+    accounts.personal = {
+      primary = true;
+      remote = {
+        type = "caldav";
+        url = "https://purelymail.com/webdav/1038074/caldav/default/";
+        userName = "sloane@sloanelybutsurely.com";
+        passwordCommand = ["${pkgs.coreutils}/bin/cat" "${config.home.homeDirectory}/.secrets/personal"];
+      };
+      vdirsyncer.enable = true;
+      khal.enable = true;
+    };
+  };
 }
