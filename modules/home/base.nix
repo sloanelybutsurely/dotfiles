@@ -82,8 +82,8 @@ in
   programs.neovim = {
     enable = true;
     sideloadInitLua = true;
-    viAlias = true;
-    vimAlias = true;
+    viAlias = false;
+    vimAlias = false;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter-parsers.elixir

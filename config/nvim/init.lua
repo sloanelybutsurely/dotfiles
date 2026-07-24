@@ -5,6 +5,9 @@ vim.pack.add({
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
   { src = 'https://github.com/nvim-telescope/telescope.nvim', version = 'v0.2.2' },
 
+  { src = "https://github.com/tpope/vim-fugitive",            version = 'v3.7' },
+  { src = "https://github.com/tpope/vim-rhubarb" },
+
   -- colorscheme
   { src = 'https://github.com/sderev/alabaster.vim' },
 })
