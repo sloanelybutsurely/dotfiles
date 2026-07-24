@@ -1,5 +1,7 @@
 { config, pkgs, lib, ... }:
 {
+  # disable things (opt-out) currently in base, should make these optional
+  # modules and opt-in instead
   services.mpd.enable = lib.mkForce false;
   services.imapnotify.enable = lib.mkForce false;
 
@@ -20,4 +22,7 @@
 
   home.file."media/podcasts".enable = lib.mkForce false;
   home.file."media/music".enable = lib.mkForce false;
+
+  # additional options (opt-in)
+  programs.claude-code.enable = true;
 }
