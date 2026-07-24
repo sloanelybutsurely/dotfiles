@@ -14,7 +14,6 @@ in
     difftastic
     htop
     wget
-    zellij
     jujutsu
     ffmpeg
     htop
