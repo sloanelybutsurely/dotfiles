@@ -18,7 +18,10 @@ in
   programs.newsboat.browser = ''"open %u"'';
   programs.git.ignores = [ ".DS_Store" ];
 
-  xdg.configFile."kitty/kitty.conf".source = link "${config-files}/kitty/kitty.conf";
+  xdg.configFile."kitty" = {
+    source = link "${config-files}/kitty";
+    recursive = true;
+  };
 
   services.mpd.musicDirectory = "${config.home.homeDirectory}/Music/iPod/Music";
 
