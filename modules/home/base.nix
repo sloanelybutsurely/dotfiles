@@ -188,10 +188,12 @@ in
     source = link "${nix-config}/bin";
   };
 
-  home.activation.mailSecrets = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    run mkdir -p ${config.home.homeDirectory}/.secrets/mail
-    run ${pkgs._1password-cli}/bin/op read "op://Private/Purelymail/home-manager" > ${config.home.homeDirectory}/.secrets/mail/personal
-    run chmod 0600 ${config.home.homeDirectory}/.secrets/mail/personal
+  home.activation.secrets = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    run mkdir -p ${config.home.homeDirectory}/.secrets
+    if  [ ! -f ${config.home.homeDirectory}/.secrets/personal ]; then
+      run ${pkgs._1password-cli}/bin/op read "op://Private/Purelymail/home-manager" > ${config.home.homeDirectory}/.secrets/personal
+      run chmod 0600 ${config.home.homeDirectory}/.secrets/personal
+    fi
   '';
 
   ## email
@@ -240,7 +242,7 @@ in
   accounts.email.accounts.personal = {
     primary = true;
     userName = "sloane@sloanelybutsurely.com";
-    passwordCommand = "${pkgs.coreutils}/bin/cat ${config.home.homeDirectory}/.secrets/mail/personal";
+    passwordCommand = "${pkgs.coreutils}/bin/cat ${config.home.homeDirectory}/.secrets/personal";
     address = "sloane@sloanelybutsurely.com";
     realName = "Sloane Perrault";
     imap.host = "imap.purelymail.com";
