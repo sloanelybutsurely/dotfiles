@@ -1,5 +1,13 @@
 {
   "plugins": {
+    "alabaster.nvim": {
+      "rev": "b902c73fabefc13583bfc0c18b28950ea8f6244f",
+      "src": "https://github.com/dchinmay2/alabaster.nvim"
+    },
+    "alabaster.vim": {
+      "rev": "3f22e44b3a0cc971cbb63c1d38643e8d9a5bcdf9",
+      "src": "https://github.com/sderev/alabaster.vim"
+    },
     "catppuccin": {
       "rev": "fc2e9d853208621a94ec597c50bf559875bf6d99",
       "src": "https://github.com/catppuccin/vim"

@@ -4,6 +4,9 @@ vim.pack.add({
   -- TODO: consider replacing with `mini.pick`. plenary is slated for archival
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
   { src = 'https://github.com/nvim-telescope/telescope.nvim', version = 'v0.2.2' },
+
+  -- colorscheme
+  { src = 'https://github.com/sderev/alabaster.vim' },
 })
 
 -- basic options
@@ -20,6 +23,7 @@ vim.opt.expandtab = true
 
 vim.opt.spelllang = 'en_us'
 
+vim.cmd('colorscheme alabaster-bg')
 
 -- lsp
 vim.lsp.enable({ 'lua_ls', 'elixirls', 'ts_ls', 'gopls' })
