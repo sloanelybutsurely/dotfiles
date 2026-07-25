@@ -25,7 +25,6 @@ in
     pv
     file
     unzip
-    w3m
     fzy
     gnused
     restic
@@ -218,18 +217,11 @@ in
       ${builtins.readFile cfgText}
 
       [filters]
-      text/plain=colorize
+      text/plain=wrap -w 80 | colorize
       text/calendar=calendar
       message/delivery-status=colorize
       message/rfc822=colorize
-      #text/html=pandoc -f html -t plain | colorize
-      text/html=! html
-      #text/html=! w3m -T text/html -I UTF-8
-      #text/*=bat -fP --file-name="$AERC_FILENAME"
-      #application/x-sh=bat -fP -l sh
-      #image/*=catimg -w $(tput cols) -
-      #subject,~Git(hub|lab)=lolcat -f
-      #from,thatguywhodoesnothardwraphismessages=wrap -w 100 | colorize
+      text/html=html | colorize
       .headers=colorize
       '';
   };
