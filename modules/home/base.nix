@@ -169,6 +169,7 @@ in
     recursive = true;
   };
   xdg.configFile."mpd/mpd.conf".text = config.services.mpd.generatedConfig;
+  xdg.configFile."aerc/binds.conf".source = link "${config-files}/aerc/binds.conf";
   xdg.configFile."aerc/sync-folder.sh" = {
     executable = true;
     text = ''
