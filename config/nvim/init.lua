@@ -30,28 +30,28 @@ vim.cmd('colorscheme alabaster-bg')
 
 -- lsp
 vim.lsp.enable({ 'lua_ls', 'elixirls', 'ts_ls', 'gopls' })
-local lsp_group = vim.api.nvim_create_augroup('sloane.lsp', {})
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = lsp_group,
-  callback = function(ev)
-    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-
-    -- if client:supports_method('textDocument/completion') then
-    --   vim.lsp.completion.enable(true, client.id, ev.buf)
-    -- end
-
-    if not client:supports_method('textDocument/willSaveWaitUntil')
-        and client:supports_method('textDocument/formatting') then
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = lsp_group,
-        buffer = ev.buf,
-        callback = function()
-          vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })
-        end,
-      })
-    end
-  end,
-})
+-- local lsp_group = vim.api.nvim_create_augroup('sloane.lsp', {})
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   group = lsp_group,
+--   callback = function(ev)
+--     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+--
+--     -- if client:supports_method('textDocument/completion') then
+--     --   vim.lsp.completion.enable(true, client.id, ev.buf)
+--     -- end
+--
+--     if not client:supports_method('textDocument/willSaveWaitUntil')
+--         and client:supports_method('textDocument/formatting') then
+--       vim.api.nvim_create_autocmd('BufWritePre', {
+--         group = lsp_group,
+--         buffer = ev.buf,
+--         callback = function()
+--           vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })
+--         end,
+--       })
+--     end
+--   end,
+-- })
 vim.keymap.set('n', 'gD', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gR', vim.lsp.buf.references)
 
