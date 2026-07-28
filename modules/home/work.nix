@@ -6,7 +6,6 @@
   services.imapnotify.enable = lib.mkForce false;
 
   programs.newsboat.enable = lib.mkForce false;
-  programs.senpai.enable = lib.mkForce false;
   programs.aerc.enable = lib.mkForce false;
   programs.mbsync.enable = lib.mkForce false;
   programs.msmtp.enable = lib.mkForce false;
