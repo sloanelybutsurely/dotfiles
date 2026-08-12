@@ -149,6 +149,8 @@ in
     };
   };
 
+  programs.gpg.enable = true;
+
   xdg = {
     enable = true;
     configHome = "${config.home.homeDirectory}/.config";
