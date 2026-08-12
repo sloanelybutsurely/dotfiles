@@ -24,4 +24,8 @@
 
   # additional options (opt-in)
   programs.claude-code.enable = true;
+
+  programs.zellij = {
+    enable = true;
+  };
 }
