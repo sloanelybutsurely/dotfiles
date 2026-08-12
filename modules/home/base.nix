@@ -193,7 +193,7 @@ in
   home.activation.secrets = lib.hm.dag.entryAfter ["writeBoundary"] ''
     run mkdir -p ${config.home.homeDirectory}/.secrets
     if  [ ! -f ${config.home.homeDirectory}/.secrets/personal ]; then
-      run ${pkgs._1password-cli}/bin/op read "op://Private/Purelymail/home-manager" > ${config.home.homeDirectory}/.secrets/personal
+      run ${pkgs._1password-cli}/bin/op read "op://Private/Fastmail/home-manager" > ${config.home.homeDirectory}/.secrets/personal
       run chmod 0600 ${config.home.homeDirectory}/.secrets/personal
     fi
   '';
@@ -240,8 +240,8 @@ in
     passwordCommand = "${pkgs.coreutils}/bin/cat ${config.home.homeDirectory}/.secrets/personal";
     address = "sloane@sloanelybutsurely.com";
     realName = "Sloane Perrault";
-    imap.host = "imap.purelymail.com";
-    smtp.host = "smtp.purelymail.com";
+    imap.host = "imap.fastmail.com";
+    smtp.host = "smtp.fastmail.com";
 
     mbsync = {
       enable = true;
@@ -265,23 +265,6 @@ in
         check-mail-cmd = "mbsync -a && notmuch new";
         check-mail-timeout = "30s";
       };
-    };
-  };
-
-  programs.vdirsyncer.enable = true;
-  programs.khal.enable = true;
-  accounts.calendar = {
-    basePath = "${config.xdg.dataHome}/caldav";
-    accounts.personal = {
-      primary = true;
-      remote = {
-        type = "caldav";
-        url = "https://purelymail.com/webdav/1038074/caldav/default/";
-        userName = "sloane@sloanelybutsurely.com";
-        passwordCommand = ["${pkgs.coreutils}/bin/cat" "${config.home.homeDirectory}/.secrets/personal"];
-      };
-      vdirsyncer.enable = true;
-      khal.enable = true;
     };
   };
 }
