@@ -1,6 +1,16 @@
 call plug#begin()
 
-Plug 'tpope/vim-sensible', { 'tag': 'v2.0' }
+Plug 'tpope/vim-sensible',    { 'tag': 'v2.0' }
+Plug 'tpope/vim-surround',    { 'tag': 'v2.2' }
+Plug 'tpope/vim-commentary',  { 'tag': 'v1.3' }
+Plug 'tpope/vim-abolish',     { 'tag': 'v1.2' }
+Plug 'tpope/vim-repeat',      { 'tag': 'v1.2' }
+Plug 'tpope/vim-fugitive',    { 'tag': 'v3.7' }
+Plug 'tpope/vim-rhubarb'
+Plug 'preservim/nerdtree',    { 'tag': '7.1.3' }
+
+Plug 'sderev/alabaster.vim'
+Plug 'vim-polyglot/vim-polyglot'
 
 call plug#end()
 
@@ -10,6 +20,8 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 set mouse=a
+set hlsearch
+
 
 let mapleader = " "
 
@@ -17,14 +29,34 @@ nmap ;  :
 vmap ;  :
 nmap q; q:
 vmap q; q:
+nmap <esc>  :set nohlsearch<cr>
 
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+nnoremap <c-h>  <c-w>h
+nnoremap <c-j>  <c-w>j
+nnoremap <c-k>  <c-w>k
+nnoremap <c-l>  <c-w>l
 
-nnoremap <leader>w  <cmd>w<cr>
-nnoremap <leader>q  <cmd>q<cr>
+nnoremap <leader>w      :w<cr>
+nnoremap <leader>q      :q<cr>
 
-nnoremap <leader>\" <cmd>split<cr>
-nnoremap <leader>%  <cmd>vsplit<cr>
+nnoremap <leader>\"     :split<cr>
+nnoremap <leader>%      :vsplit<cr>
+
+function! FzyCommand(choice_command, vim_command)
+  try
+    let output = system(a:choice_command . " | fzy ")
+  catch /Vim:Interrupt/
+    " Swallow errors from ^C, allow redraw! below
+  endtry
+  redraw!
+  if v:shell_error == 0 && !empty(output)
+    exec a:vim_command . ' ' . output
+  endif
+endfunction
+
+nnoremap <leader><tab>    :NERDTreeToggle<cr>
+nnoremap <leader><space>  :call FzyCommand("fd -t f -H", ":e")<cr>
+nnoremap <leader>/        :call FzyCommand("rg", ":e")<cr>
+
+set termguicolors
+colorscheme alabaster-bg
