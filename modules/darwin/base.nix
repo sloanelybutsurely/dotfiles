@@ -29,6 +29,9 @@
   homebrew = {
     enable = true;
     enableFishIntegration = true;
+    brews = [
+      "vim-classic"
+    ];
     casks = [
       "alfred"
       "1password"

@@ -185,6 +185,12 @@ in
     '';
   };
 
+  home.file.".vimrc".source = link "${config-files}/vimrc";
+  home.file.".vim" = {
+    recursive = true;
+    source = link "${config-files}/vim";
+  };
+
   home.file.".bin" = {
     recursive = true;
     source = link "${nix-config}/bin";

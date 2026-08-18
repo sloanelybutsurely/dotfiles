@@ -1,0 +1,30 @@
+call plug#begin()
+
+Plug 'tpope/vim-sensible', { 'tag': 'v2.0' }
+
+call plug#end()
+
+set number
+set relativenumber
+set shiftwidth=2
+set tabstop=2
+set expandtab
+set mouse=a
+
+let mapleader = " "
+
+nmap ;  :
+vmap ;  :
+nmap q; q:
+vmap q; q:
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+nnoremap <leader>w  <cmd>w<cr>
+nnoremap <leader>q  <cmd>q<cr>
+
+nnoremap <leader>\" <cmd>split<cr>
+nnoremap <leader>%  <cmd>vsplit<cr>
