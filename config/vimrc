@@ -29,7 +29,6 @@ nmap ;  :
 vmap ;  :
 nmap q; q:
 vmap q; q:
-nmap <esc>  :set nohlsearch<cr>
 
 nnoremap <c-h>  <c-w>h
 nnoremap <c-j>  <c-w>j
@@ -55,8 +54,9 @@ function! FzyCommand(choice_command, vim_command)
 endfunction
 
 nnoremap <leader><tab>    :NERDTreeToggle<cr>
+nnoremap <leader>fl       :NERDTreeFind<cr>
 nnoremap <leader><space>  :call FzyCommand("fd -t f -H", ":e")<cr>
-nnoremap <leader>/        :call FzyCommand("rg", ":e")<cr>
+" nnoremap <leader>/        :call FzyCommand("rg", ":e")<cr>
 
 set termguicolors
 colorscheme alabaster-bg
