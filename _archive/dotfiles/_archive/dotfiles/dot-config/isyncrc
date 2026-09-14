@@ -1,0 +1,55 @@
+# =======================================
+# Personal: sloane@sloanelybutsurely.com
+# =======================================
+IMAPAccount personal
+Host imap.fastmail.com
+Port 993
+User sloane@sloanelybutsurely.com
+PassCmd "op item get 'sloane@sloanelybutsurely.com - app password' --fields password --reveal"
+AuthMechs PLAIN
+TLSType IMAPS
+CertificateFile /etc/ssl/cert.pem
+
+IMAPStore personal-remote
+Account personal
+
+MaildirStore personal-local
+Path ~/Mail/
+Inbox ~/Mail/INBOX
+Subfolders Verbatim
+
+Channel personal
+Far :personal-remote:
+Near :personal-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *
+
+# # =======================================
+# # screen.garden: sloane@screen.garden
+# # =======================================
+# IMAPAccount screen-garden
+# Host imap.fastmail.com
+# Port 993
+# User sloane@screen.garden
+# PassCmd "op item get 'sloane@screen.garden - app password' --fields password --reveal"
+# AuthMechs PLAIN
+# TLSType IMAPS
+# CertificateFile /etc/ssl/cert.pem
+
+# IMAPStore screen-garden-remote
+# Account screen-garden
+
+# MaildirStore screen-garden-local
+# Path ~/Mail/sloane@screen.garden/
+# Inbox ~/Mail/sloane@screen.garden/INBOX
+# Subfolders Verbatim
+
+# Channel screen-garden
+# Far :screen-garden-remote:
+# Near :screen-garden-local:
+# Patterns *
+# Create Both
+# Expunge Both
+# SyncState *

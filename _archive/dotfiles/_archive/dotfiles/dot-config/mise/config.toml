@@ -1,0 +1,12 @@
+[tools]
+erlang = "28"
+node = "lts"
+elixir = "1.19"
+pnpm = "latest"
+bun = "latest"
+"aqua:LuaLS/lua-language-server" = "latest"
+expert = "latest"
+tree-sitter = "latest"
+
+[settings]
+experimental = true

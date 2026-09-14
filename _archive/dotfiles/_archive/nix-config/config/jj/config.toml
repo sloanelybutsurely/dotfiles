@@ -1,0 +1,94 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+# [fsmonitor]
+# backend = "watchman"
+
+[user]
+name = "sloane"
+email = "sloane@sloanelybutsurely.com"
+
+# [signing]
+# behavior = "own"
+# backend = "ssh"
+# key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILToeB7dAYxTbD8qJtY3/pwqbRy/AHpbPqX69Go9hRx0"
+
+# [[--scope]]
+# --when.platforms = ["macos"]
+# [--scope.signing]
+# backends.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+# [[--scope]]
+# --when.platforms = ["linux"]
+# [--scope.signing]
+# backends.ssh.program = "/opt/1Password/op-ssh-sign"
+
+[ui]
+paginate = "never"
+default-command = "log"
+editor = "nvim"
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
+diff-editor = ":builtin"
+
+[git]
+private-commits = "wip | nocommit | dev-only"
+
+# https://ddbeck.com/notes/jj-git-push-bookmark-template/
+[template-aliases]
+"slugify(str)" = '''
+  str.replace(regex:'[^[[:alnum:]].]', '-')
+     .replace(regex:'-{2,}', '-')
+     .replace(regex:'\.{2,}', '.')
+     .replace(regex:'(^-+|-+$)', '')
+     .lower()
+'''
+
+[templates]
+git_push_bookmark = '"sloane/" ++ truncate_end(65, slugify(description.first_line()))'
+
+[revsets]
+log = "trunk() | ancestors(reachable(@ | mine(), mutable()), 2) | @"
+bookmark-advance-to = "@-"
+
+[revset-aliases]
+wip = 'description(regex:"^\\[(wip|WIP|todo|TODO)\\]|(wip|WIP|todo|TODO):?")'
+nocommit = 'description(regex:"^\\[(nocommit|NOCOMMIT)\\]|(nocommit|NOCOMMIT):?")'
+dev-only = 'description(regex:"^\\[(dev-only|DEV-ONLY)\\]|(dev-only|DEV-ONLY):?")'
+current = '(bookmarks() | wip | dev-only) & mine() & ~immutable()'
+'closest_bookmark(to)' = "heads(::to & bookmarks())"
+'closest_merge(to)' = "heads(::to & merges())"
+
+[aliases]
+r = ["rebase"]
+s = ["squash"]
+n = ["new"]
+e = ["edit"]
+tug = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+echo "jj tug has been renamed to jj hoist (or jj h). please use that instead"
+exit 1
+"""]
+h = ["hoist"]
+hoist = ["bookmark", "advance"]
+catchup = ["rebase", "-b", "current", "-d", "trunk()", "--skip-emptied"]
+changed = ["diff", "--files-only"]
+init = ["git", "init"]
+fetch = ["git", "fetch"]
+push = ["git", "push"]
+wip = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+revset=$1
+jj log --no-graph -r "$revset" -T 'if(description.contains("(wip)"), description, "(wip) " ++ description)' | jj desc "$revset" --stdin
+""", ""]
+unwip = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+revset=$1
+jj log --no-graph -r "$revset" -T 'description.replace("(wip)", "").trim()' | jj desc "$revset" --stdin
+""", ""]
+sync = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+jj fetch
+jj catchup
+jj push --tracked
+""", ""]
+stack = ["rebase", "--after", "trunk()", "--before", "closest_merge(@)", "--revision"]
+stage = ["stack", "closest_merge(@).. ~ empty()"]

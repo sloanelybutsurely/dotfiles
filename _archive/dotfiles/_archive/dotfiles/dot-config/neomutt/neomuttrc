@@ -1,0 +1,71 @@
+# general
+set mbox_type = Maildir
+set header_cache = ~/.cache/neomutt/headers
+set message_cache_dir = ~/.cache/neomutt/bodies
+set certificate_file = ~/.cache/neomutt/certificates
+set tmp_dir = ~/.cache/neomutt/tmp
+
+set folder = ~/Mail
+
+set editor = "nvim"
+
+set sort = threads
+set sort_aux = reverse-last-date-received
+
+auto_view text/html
+alternative_order text/plain text/html
+
+set pager_stop = yes
+set pager_context = 3
+
+set markers = no
+set text_flowed = yes
+set reflow_text = yes
+set reflow_wrap = 0
+set smart_wrap = yes
+unset tilde
+
+set mail_check_stats
+set sidebar_visible = no
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+
+
+## bindings
+
+# sidebar
+bind index,pager \CS sidebar-toggle-visible
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+
+# bind pager j next-line
+# bind pager k previous-line
+# bind pager <down> next-line
+# bind pager <up> previous-line
+
+color sidebar_new yellow default
+color normal white default
+color indicator black cyan
+color status cyan default
+
+# Account: Personal <sloane@sloanelybutsurely.com>
+set from = "sloane@sloanelybutsurely.com"
+set realname = "Sloane Perrault"
+
+set spoolfile = "+/INBOX"
+set record = "+/Sent"
+set postponed = "+/Drafts"
+set trash = "+/Trash"
+
+set smtp_url = "smtps://sloane@sloanelybutsurely.com@smtp.fastmail.com:465"
+set smtp_pass = "`op item get 'sloane@sloanelybutsurely.com - app password' --fields password --reveal`"
+set smtp_authenticators = "plain"
+
+unmailboxes *
+mailboxes "+INBOX" \
+          "+Sent" \
+          "+Drafts" \
+          "+Archive" \
+          "+Trash"
+
+set signature = "~/.config/neomutt/signatures/personal"
