@@ -22,6 +22,7 @@ set expandtab
 set mouse=a
 set hlsearch
 
+set belloff=esc
 
 let mapleader = " "
 
@@ -35,11 +36,16 @@ nnoremap <c-j>  <c-w>j
 nnoremap <c-k>  <c-w>k
 nnoremap <c-l>  <c-w>l
 
-nnoremap <leader>w      :w<cr>
-nnoremap <leader>q      :q<cr>
+nnoremap <silent> <leader>w      :w<cr>
+nnoremap <silent> <leader>q      :q<cr>
 
-nnoremap <leader>\"     :split<cr>
-nnoremap <leader>%      :vsplit<cr>
+nnoremap <silent> <leader>"      :split<cr>
+nnoremap <silent> <leader>%      :vsplit<cr>
+
+nnoremap <leader>y  "+y
+vnoremap <leader>y  "+y
+nnoremap <leader>p  "+p
+vnoremap <leader>p  "+p
 
 function! FzyCommand(choice_command, vim_command)
   try
@@ -53,10 +59,11 @@ function! FzyCommand(choice_command, vim_command)
   endif
 endfunction
 
+nnoremap <leader><space>  :call FzyCommand("fd -t f -H", ":e")<cr>
+nnoremap <leader>/        :call FzyCommand("rg . -l -g ''", ":e")<cr>
+
 nnoremap <leader><tab>    :NERDTreeToggle<cr>
 nnoremap <leader>fl       :NERDTreeFind<cr>
-nnoremap <leader><space>  :call FzyCommand("fd -t f -H", ":e")<cr>
-" nnoremap <leader>/        :call FzyCommand("rg", ":e")<cr>
 
 set termguicolors
 colorscheme alabaster-bg
