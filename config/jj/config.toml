@@ -77,12 +77,12 @@ push = ["git", "push"]
 wip = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
 revset=$1
-jj log --no-graph -r $revset -T 'if(description.contains("(wip)"), description, "(wip) " ++ description)' | jj desc $revset --stdin
+jj log --no-graph -r "$revset" -T 'if(description.contains("(wip)"), description, "(wip) " ++ description)' | jj desc "$revset" --stdin
 """, ""]
 unwip = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
 revset=$1
-jj log --no-graph -r $revset -T 'description.replace("(wip)", "").trim()' | jj desc $revset --stdin
+jj log --no-graph -r "$revset" -T 'description.replace("(wip)", "").trim()' | jj desc "$revset" --stdin
 """, ""]
 sync = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
